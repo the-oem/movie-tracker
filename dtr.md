@@ -4,52 +4,52 @@
 * Lindsay Parker, George Goering, and JC
 
 ### Project Expectations: What does each group member hope to get out of this project?
-* Lindsay:
+* Lindsay: Some level of familiarity with Router & Redux. Another successful team project.
 * George:
 * JC:
 
 ### Goals and expectations:
-* Lindsay:
+* Lindsay: Comfortable balance of tasks across the three of us, balance of driver-navigator and individual work.
 * George:
 * JC:
 
 ### Team strengths:
-* Lindsay:
+* Lindsay: Organization, communication, design
 * George:
 * JC:
 
 ### How to overcome obstacles:
-* Lindsay:
+* Lindsay: Ask for help only after struggling for 30-45 minutes with little progress.
 * George:
 * JC:
 
 ### Schedule Expectations (When are we available to work together and individually?):
-* Lindsay:
+* Lindsay: Anytime outside Saturday 10a-4p, Sunday 9-11a.  Usually on campus by 7:45a, leave by 6p, though I'm available to screenhero in the evenings.
 * George:
 * JC:
 
 ### Communication Expectations (How and often will we communicate? How do we keep lines of communication open?):
-* Lindsay:
+* Lindsay: Communicate early.  Pre-schedule face-to-face feedback session(s).
 * George:
 * JC:
 
 ### Abilities Expectations (Technical strengths and areas for desired improvement):
-* Lindsay:
+* Lindsay: Decent @ React, plenty of room for improvement with Redux & Router.  Fetch is decent, but practice couldn't hurt!
 * George:
 * JC:
 
 ### Workload Expectations (What features do we each want to work on?):
-* Lindsay:
+* Lindsay: Definitely involved with the new material, then my fair share of the material we're all comfortable with.
 * George:
 * JC:
 
 ### Workflow Expectations (Git workflow/Tools/Code Review/Reviewing Pull Requests):
-* Lindsay:
+* Lindsay:  All the usual suspects.  Clean master. Period.
 * George:
 * JC:
 
 ### Expectations for giving and receiving feedback:
-* Lindsay:
+* Lindsay:  Constructive.  Early and often, in a respectful & trustworthy way.
 * George:
 * JC:
 
