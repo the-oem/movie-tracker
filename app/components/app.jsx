@@ -5,12 +5,15 @@
 // '/create-account'
 
 
-
 import React, { Component } from 'react';
+import { object } from 'prop-types';
 
 export default class App extends Component {
   constructor() {
     super();
+    this.state = {
+      movies: [],
+    };
   }
 
   render() {
@@ -18,6 +21,6 @@ export default class App extends Component {
       <div>
         <h1>Movie Watcher</h1>
       </div>
-    )
+    );
   }
 }
