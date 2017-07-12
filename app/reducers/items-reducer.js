@@ -21,7 +21,6 @@ export const itemsIsLoading = (state = false, action) => {
 export const items = (state = [], action) => {
   switch (action.type) {
     case 'ITEMS_FETCH_DATA_SUCCESS':
-      console.log('hittin it dat reducer');
       return [...state, action.items];
 
     default:

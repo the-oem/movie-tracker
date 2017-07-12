@@ -1,5 +1,4 @@
-import GetMovies from '../helpers/apiUtils';
-import { NEW_MOVIES_URL, imagePrefix } from '../helpers/constants';
+import ApiUtils from '../helpers/apiUtils';
 
 export const itemsHasErrored = (bool) => {
   return {
@@ -25,12 +24,8 @@ export const itemsFetchDataSuccess = (items) => {
 
 export const makeFetchCall = () => {
   return (dispatch) => {
-    // dispatch(itemsIsLoading(true));
-
-    const fetchCall = new GetMovies(NEW_MOVIES_URL, imagePrefix);
-    return fetchCall.fetchNewMovies(fetchCall.url, fetchCall.imagePrefix)
-    .then((items) => {
-      dispatch(itemsFetchDataSuccess(items));
-    });
+    return new ApiUtils().fetchMovies()
+      .then(items => dispatch(itemsFetchDataSuccess(items)))
+      .catch(() => dispatch(itemsHasErrored(true)));
   };
 };

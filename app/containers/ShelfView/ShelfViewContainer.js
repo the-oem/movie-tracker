@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchData: (url, imagePrefix) => dispatch(makeFetchCall(url, imagePrefix)),
+    fetchData: () => dispatch(makeFetchCall()),
   };
 };
 
