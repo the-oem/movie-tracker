@@ -7,13 +7,14 @@ import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-r
 import createHistory from 'history/createBrowserHistory';
 import App from './components/app.jsx';
 import MovieIndex from './components/movieIndex.jsx';
+import rootReducer from './reducers';
 
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 const history = createHistory();
 const middleware = routerMiddleware(history);
 const store = createStore(
-  combineReducers({ routers: routerReducer }),
+  combineReducers({ routers: routerReducer, redux: rootReducer }),
   devTools,
   applyMiddleware(middleware, thunk));
 

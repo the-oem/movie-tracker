@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import ShelfView from '../../components/ShelfView/ShelfView';
+import { makeFetchCall } from '../../actions/items';
 
 const mapStateToProps = (state) => {
   return {
@@ -11,7 +12,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchData: url => dispatch(fetchNewMovies(url, imagePrefix)),
+    fetchData: (url, imagePrefix) => dispatch(makeFetchCall(url, imagePrefix)),
   };
 };
 

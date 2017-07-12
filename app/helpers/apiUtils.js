@@ -6,8 +6,7 @@ export default class GetMovies {
 
   fetchNewMovies(url, imagePrefix) {
     return fetch(url).then(response => response.json())
-                     .then(data => this.fetchImage(this.imagePrefix, data))
-                     .then(final => console.log(final));
+                     .then(data => this.fetchImage(this.imagePrefix, data));
   }
 
   fetchImage(imagePrefix, data) {

@@ -16,6 +16,7 @@ export const itemsIsLoading = (bool) => {
 };
 
 export const itemsFetchDataSuccess = (items) => {
+  console.log(items, 'itams');
   return {
     type: 'ITEMS_FETCH_DATA_SUCCESS',
     items,
@@ -26,7 +27,10 @@ export const makeFetchCall = () => {
   return (dispatch) => {
     // dispatch(itemsIsLoading(true));
 
-    fetchCall = new GetMovies(NEW_MOVIES_URL, imagePrefix);
-    fetchCall.fetchNewMovies(fetchCall.url, fetchCall.imagePrefix);
+    const fetchCall = new GetMovies(NEW_MOVIES_URL, imagePrefix);
+    return fetchCall.fetchNewMovies(fetchCall.url, fetchCall.imagePrefix)
+    .then((items) => {
+      dispatch(itemsFetchDataSuccess(items));
+    });
   };
 };
