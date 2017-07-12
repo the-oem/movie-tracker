@@ -1,7 +1,6 @@
 import React from 'react';
 import { object } from 'prop-types';
 import Movie from '../Movie/Movie';
-import './ShelfView.css';
 
 const ShelfView = () => {
   return (
