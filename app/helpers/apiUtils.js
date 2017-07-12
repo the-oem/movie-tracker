@@ -7,7 +7,6 @@ export default class ApiUtils {
 
 
   fetchMovies(url = this.url) {
-    console.log('url', url);
     return fetch(url).then(response => response.json())
                      .then(data => this.fetchImage(IMAGE_URL, data));
   }
