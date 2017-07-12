@@ -13,8 +13,7 @@ import rootReducer from './reducers';
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 const history = createHistory();
 const middleware = routerMiddleware(history);
-const store = createStore(
-  combineReducers({ routers: routerReducer, redux: rootReducer }),
+const store = createStore(rootReducer,
   devTools,
   applyMiddleware(middleware, thunk));
 

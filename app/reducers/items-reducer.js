@@ -21,7 +21,7 @@ export const itemsIsLoading = (state = false, action) => {
 export const items = (state = [], action) => {
   switch (action.type) {
     case 'ITEMS_FETCH_DATA_SUCCESS':
-      return [...state, action.items];
+      return [...state, ...action.items];
 
     default:
       return state;

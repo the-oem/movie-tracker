@@ -15,7 +15,6 @@ export const itemsIsLoading = (bool) => {
 };
 
 export const itemsFetchDataSuccess = (items) => {
-  console.log(items, 'itams');
   return {
     type: 'ITEMS_FETCH_DATA_SUCCESS',
     items,
@@ -24,8 +23,12 @@ export const itemsFetchDataSuccess = (items) => {
 
 export const makeFetchCall = () => {
   return (dispatch) => {
+    dispatch(itemsIsLoading(true));
     return new ApiUtils().fetchMovies()
-      .then(items => dispatch(itemsFetchDataSuccess(items)))
+      .then((items) => {
+        dispatch(itemsFetchDataSuccess(items));
+        dispatch(itemsIsLoading(false));
+      })
       .catch(() => dispatch(itemsHasErrored(true)));
   };
 };

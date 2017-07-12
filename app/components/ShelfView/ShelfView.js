@@ -4,20 +4,18 @@ import Movie from '../Movie/Movie';
 
 export default class ShelfView extends Component {
   componentDidMount() {
-    console.log('mounted');
     this.props.fetchData();
   }
 
   render() {
+    const content = this.props.isLoading ?
+      'loading..' :
+      this.props.items.map((movie, i) => <Movie key={movie.title + i} data={movie}/>);
+
     return (
-    <div className='shelf-view'>
-      Shelf that includes....hard-coded movies...
-      <Movie />
-      <Movie />
-      <Movie />
-      <Movie />
-    </div>
+      <div className='shelf-view'>
+        {content}
+      </div>
     );
   }
-
 }
