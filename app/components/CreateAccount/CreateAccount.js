@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { object } from 'prop-types';
-import './CreateAccount.css';
 
 export default class CreateAccount extends Component {
   constructor() {

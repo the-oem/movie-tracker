@@ -1,18 +1,19 @@
-export default class GetMovies {
-  constructor(url, imagePrefix) {
+import { NEW_MOVIES_URL, IMAGE_URL } from './constants';
+
+export default class ApiUtils {
+  constructor(url = NEW_MOVIES_URL) {
     this.url = url;
-    this.imagePrefix = imagePrefix;
   }
 
-  fetchNewMovies(url, imagePrefix) {
+
+  fetchMovies(url = this.url) {
     return fetch(url).then(response => response.json())
-                     .then(data => this.fetchImage(this.imagePrefix, data))
-                     .then(final => console.log(final));
+                     .then(data => this.fetchImage(IMAGE_URL, data));
   }
 
-  fetchImage(imagePrefix, data) {
+  fetchImage(imageUrl, data) {
     const promiseArray = data.results.map((element) => {
-      return fetch(imagePrefix + element.poster_path);
+      return fetch(imageUrl + element.poster_path);
     });
     return Promise.all(promiseArray).then((imageData) => {
       return data.results.map((movie, index) => {
@@ -23,6 +24,7 @@ export default class GetMovies {
           overview: movie.overview,
           voteAverage: movie.vote_average,
           poster: imageData[index].url,
+          id: movie.id,
         };
       });
     });
