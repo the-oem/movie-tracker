@@ -2,6 +2,8 @@ import { connect } from 'react-redux';
 import Login from '../../components/Login/Login';
 import { makeUserCall } from '../../actions/users';
 
+const mapStateToProps = state => state;
+
 const mapDispatchToProps = (dispatch) => {
   return {
     handleAuthentication: (state) => {
@@ -10,4 +12,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
