@@ -1,7 +1,36 @@
-#main h1 {
-  background-color: blue;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Lato', Arial, sans-serif;
 }
 
 #main {
+  min-height: 100vh;
+  padding-bottom: 50px;
+  background: url('./assets/wood-grain.jpg');
+}
+
+.header {
+  height: 60px;
+  padding: 6px 0;
+  background-color: rgba(25, 19, 15, 0.85);
+}
+
+h1 {
+  color: #FFF;
+  font-family: 'Merriweather Sans', Arial, sans-serif;
+  font-size: 36px;
   text-align: center;
+}
+
+.movie {
+  margin: 15px;
+}
+
+.movie-poster {
+  height: 200px;
+  border-color: transparent;
+  border-image: url('./assets/blu-ray-case.png') 100 stretch;
+  border-style: solid;
+  border-width: 15px 2px 2px;
 }
