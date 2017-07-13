@@ -5,7 +5,6 @@ export default class ApiUtils {
     this.url = url;
   }
 
-
   fetchMovies(url = this.url) {
     return fetch(url).then(response => response.json())
                      .then(data => this.fetchImage(IMAGE_URL, data));
@@ -25,8 +24,16 @@ export default class ApiUtils {
           voteAverage: movie.vote_average,
           poster: imageData[index].url,
           id: movie.id,
+          alpha_id: this.stripNonAlpha(movie.title),
         };
       });
     });
+  }
+
+  stripNonAlpha(input) {
+    if (typeof input === 'string') {
+      return input.replace(/\W+/g, '_');
+    }
+    return null;
   }
 }
