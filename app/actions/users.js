@@ -1,5 +1,4 @@
 import ApiUtils from '../helpers/apiUtils';
-import { push } from 'react-router-redux';
 
 export const userIsAuthenticated = (bool) => {
   return {
