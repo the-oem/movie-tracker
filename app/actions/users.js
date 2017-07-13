@@ -29,8 +29,6 @@ export const makeUserCall = ({ email, password }) => {
         if (response.name === 'Error') throw Error('User not found.');
         dispatch(userIsAuthenticated(true));
         dispatch(userAuthenticationSuccess(response));
-
-        // TODO Reset any existing error messages
       })
       .catch((err) => {
         dispatch(userIsAuthenticated(false));

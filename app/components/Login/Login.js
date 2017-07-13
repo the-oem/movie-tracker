@@ -17,8 +17,8 @@ export default class Login extends Component {
     e.preventDefault();
     this.props.handleAuthentication(this.state);
     this.setState({
-      email: '',
-      password: '',
+      email: 'tman2272@aol.com',
+      password: 'password',
     });
   }
 
