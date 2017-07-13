@@ -7,15 +7,19 @@ export default class Login extends Component {
     this.state = {
       email: 'tman2272@aol.com',
       password: 'password',
+      authStatus: '',
     };
   }
 
   submitAuthentication(e) {
     e.preventDefault();
     this.props.handleAuthentication(this.state);
+    this.setState({ email: '',
+      password: '' });
   }
 
   render() {
+    const errorMessage = (!this.props.userIsAuthenticated && this.props.userAuthenticationFailure.error_msg !== undefined) ? 'Authentication Failure' : '';
     return (
       <div className='login'>
         <form>
@@ -23,7 +27,7 @@ export default class Login extends Component {
           <input type='text' value={this.state.password} placeholder='Password' onChange={(e) => { this.setState({ password: e.target.value }); }}/>
           <button onClick={this.submitAuthentication.bind(this)}>Login</button>
         </form>
-
+        <h1>{errorMessage}</h1>
       </div>
     );
   }
