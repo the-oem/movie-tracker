@@ -4,8 +4,8 @@ import { makeUserCall } from '../../actions/users';
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleAuthentication: (email, password) => {
-      dispatch(makeUserCall(email, password));
+    handleAuthentication: (state) => {
+      dispatch(makeUserCall(state));
     },
   };
 };

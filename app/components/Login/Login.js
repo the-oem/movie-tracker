@@ -5,18 +5,14 @@ export default class Login extends Component {
   constructor() {
     super();
     this.state = {
-      email: '',
-      password: '',
+      email: 'tman2272@aol.com',
+      password: 'password',
     };
-  }
-
-  componentDidMount() {
-    // console.log(this.props);
   }
 
   submitAuthentication(e) {
     e.preventDefault();
-    this.props.handleAuthentication();
+    this.props.handleAuthentication(this.state);
   }
 
   render() {
@@ -27,6 +23,7 @@ export default class Login extends Component {
           <input type='text' value={this.state.password} placeholder='Password' onChange={(e) => { this.setState({ password: e.target.value }); }}/>
           <button onClick={this.submitAuthentication.bind(this)}>Login</button>
         </form>
+
       </div>
     );
   }
