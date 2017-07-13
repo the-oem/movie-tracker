@@ -4,7 +4,7 @@ import { object } from 'prop-types';
 const Movie = ({ data }) => {
   return (
     <div className='movie'>
-      <img src={`${data.poster}`} />
+      <img className='movie-poster' src={`${data.poster}`} />
     </div>
   );
 };
