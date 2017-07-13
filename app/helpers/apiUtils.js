@@ -62,8 +62,14 @@ export default class ApiUtils {
         password,
       }),
     })
-    .then(response => response.json())
-    .then(data => component.setState({ message: data.message, status: data.status }));
+    .then((response) => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response.json();
+    })
+    .then(data => component.setState({ message: data.message, status: data.status }))
+    .catch(error => component.setState({ message: error.message }));
   }
 
   stripNonAlpha(input) {

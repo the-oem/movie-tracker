@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { object } from 'prop-types';
 
+
 export default class Login extends Component {
-  constructor() {
-    super();
+  constructor(props, context) {
+    super(props, context);
     this.state = {
       email: 'tman2272@aol.com',
       password: 'password',
@@ -11,11 +12,14 @@ export default class Login extends Component {
     };
   }
 
+
   submitAuthentication(e) {
     e.preventDefault();
     this.props.handleAuthentication(this.state);
-    this.setState({ email: '',
-      password: '' });
+    this.setState({
+      email: '',
+      password: '',
+    });
   }
 
   render() {

@@ -23,7 +23,10 @@ export default class App extends Component {
         <Header />
         <Route exact path='/' render={({ match }) => <ShelfViewContainer /> } />
 
-        <Route exact path='/login' render={({ match }) => <LoginContainer />} />
+        <Route exact path='/login' render={({ match }) => {
+          if (this.props.userIsAuthenticated) { return <LoginContainer />; }
+        }
+            } />
 
         <Route exact path='/favorites' render={({ match }) => <FavoritesContainer /> } />
 

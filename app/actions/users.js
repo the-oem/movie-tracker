@@ -1,4 +1,5 @@
 import ApiUtils from '../helpers/apiUtils';
+import { push } from 'react-router-redux';
 
 export const userIsAuthenticated = (bool) => {
   return {
@@ -28,6 +29,7 @@ export const makeUserCall = ({ email, password }) => {
         if (response.name === 'Error') throw Error('User not found.');
         dispatch(userIsAuthenticated(true));
         dispatch(userAuthenticationSuccess(response));
+
         // TODO Reset any existing error messages
       })
       .catch((err) => {
