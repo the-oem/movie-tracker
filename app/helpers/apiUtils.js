@@ -29,4 +29,8 @@ export default class ApiUtils {
       });
     });
   }
+
+  fetchUser(email, password) {
+    return new Promise(resolve => resolve({ name: 'bobby joe' }));
+  }
 }

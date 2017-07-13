@@ -16,7 +16,7 @@ export default class ShelfView extends Component {
 
     return (
       <div className='shelf-view'>
-        <Route exact path='/testing' component={Login} />
+        <Route exact path='/testing' render={({ match }) => <LoginContainer />} />
         {content}
       </div>
     );

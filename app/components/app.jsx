@@ -11,6 +11,7 @@ import Header from './Header/Header';
 import ShelfViewContainer from '../containers/ShelfView/ShelfViewContainer';
 import Login from '../components/Login/Login';
 import FavoritesContainer from '../containers/Favorites/FavoritesContainer';
+import LoginContainer from '../containers/Login/LoginContainer';
 import CreateAccount from '../components/CreateAccount/CreateAccount';
 
 export default class App extends Component {
@@ -22,7 +23,7 @@ export default class App extends Component {
         <Header />
         <Route exact path='/' render={({ match }) => <ShelfViewContainer /> } />
 
-        <Route exact path='/login' component={Login} />
+        <Route exact path='/login' render={({ match }) => <LoginContainer />} />
 
         <Route exact path='/favorites' render={({ match }) => <FavoritesContainer /> } />
 
