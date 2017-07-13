@@ -1,4 +1,4 @@
-import { NEW_MOVIES_URL, IMAGE_URL } from './constants';
+import { NEW_MOVIES_URL, IMAGE_URL, GET_USER_URL } from './constants';
 
 export default class ApiUtils {
   constructor(url = NEW_MOVIES_URL) {
@@ -31,7 +31,23 @@ export default class ApiUtils {
   }
 
   fetchUser(email, password) {
-    return new Promise(resolve => resolve({ name: 'bobby joe' }));
+    return fetch(GET_USER_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response.json();
+      })
+      .catch(error => error);
   }
 
   stripNonAlpha(input) {

@@ -14,14 +14,25 @@ export const userAuthenticationSuccess = (user) => {
   };
 };
 
-export const makeUserCall = (email, password) => {
-  console.log('make user call action');
+export const userAuthenticationFailure = (error) => {
+  return {
+    type: 'USER_AUTHENTICATION_FAILURE',
+    error,
+  };
+};
+
+export const makeUserCall = ({ email, password }) => {
   return (dispatch) => {
     return new ApiUtils().fetchUser(email, password)
-      .then((user) => {
+      .then((response) => {
+        if (response.name === 'Error') throw Error('User not found.');
         dispatch(userIsAuthenticated(true));
-        dispatch(userAuthenticationSuccess(user));
+        dispatch(userAuthenticationSuccess(response));
+        // TODO Reset any existing error messages
       })
-      .catch(err => console.log('error bro: ', err));
+      .catch((err) => {
+        dispatch(userIsAuthenticated(false));
+        dispatch(userAuthenticationFailure(err));
+      });
   };
 };
