@@ -5,6 +5,7 @@
 }
 
 #main {
+  min-height: 100vh;
   padding-bottom: 50px;
   background: url('./assets/wood-grain.jpg');
 }
@@ -16,16 +17,20 @@
 }
 
 h1 {
-  text-align: center;
   color: #FFF;
   font-family: 'Merriweather Sans', Arial, sans-serif;
   font-size: 36px;
+  text-align: center;
+}
+
+.movie {
+  margin: 15px;
 }
 
 .movie-poster {
   height: 200px;
-  border-width: 15px 2px 2px;
-  border-style: solid;
   border-color: transparent;
   border-image: url('./assets/blu-ray-case.png') 100 stretch;
+  border-style: solid;
+  border-width: 15px 2px 2px;
 }
