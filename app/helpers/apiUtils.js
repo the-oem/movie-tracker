@@ -30,6 +30,10 @@ export default class ApiUtils {
     });
   }
 
+  fetchUser(email, password) {
+    return new Promise(resolve => resolve({ name: 'bobby joe' }));
+  }
+
   stripNonAlpha(input) {
     if (typeof input === 'string') {
       return input.replace(/\W+/g, '_');
