@@ -5,10 +5,4 @@ const mapStateToProps = (state) => {
   return state;
 };
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     fetchData: () => dispatch(makeFetchCall()),
-//   };
-// };
-
 export default connect(mapStateToProps, null)(App);
