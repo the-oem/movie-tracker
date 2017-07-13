@@ -24,6 +24,7 @@ export default class ApiUtils {
           overview: movie.overview,
           voteAverage: movie.vote_average,
           poster: imageData[index].url,
+          id: movie.id,
         };
       });
     });
