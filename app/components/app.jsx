@@ -27,6 +27,7 @@ export default class App extends Component {
 
         <Route exact path='/favorites' render={({ match }) => <FavoritesContainer /> } />
 
+        {/* <Route exact path='/create-account' render={({ match }) => <CreateAccountContainer /> } /> */}
         <Route exact path='/create-account' component={CreateAccount} />
 
         {/* <Route path='/movies' render={({ match }) => {

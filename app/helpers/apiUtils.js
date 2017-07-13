@@ -1,4 +1,4 @@
-import { NEW_MOVIES_URL, IMAGE_URL, GET_USER_URL } from './constants';
+import { NEW_MOVIES_URL, IMAGE_URL, GET_USER_URL, CREATE_USER_URL } from './constants';
 
 export default class ApiUtils {
   constructor(url = NEW_MOVIES_URL) {
@@ -48,6 +48,22 @@ export default class ApiUtils {
         return response.json();
       })
       .catch(error => error);
+  }
+
+  createUser(component, { name, email, password }) {
+    return fetch(CREATE_USER_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+      }),
+    })
+    .then(response => response.json())
+    .then(data => component.setState({ message: data.message, status: data.status }));
   }
 
   stripNonAlpha(input) {
