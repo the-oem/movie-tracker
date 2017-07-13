@@ -23,7 +23,8 @@ h1 {
 }
 
 .movie-poster {
-  border-width: 50px 2px 2px;
+  height: 200px;
+  border-width: 15px 2px 2px;
   border-style: solid;
   border-color: transparent;
   border-image: url('./assets/blu-ray-case.png') 100 stretch;
