@@ -1,10 +1,30 @@
 import React from 'react';
 import fetchMock from 'fetch-mock';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import CreateAccount from './CreateAccount';
+// import configureMockStore from 'redux-mock-store';
+// import { Provider } from 'react-redux';
+
 
 describe('CreateAccount test', () => {
-  it('should start with state that entirely empty strings', () => {
+  // const mockStore = configureMockStore();
+  // const wrapper = mount(<Provider store={mockStore}><LoginContainer history={'http://localhost:3000/'}/></Provider>);
+  //
+  // const data = { data: {
+  //   email: 'tman2272@aol.com',
+  //   id: 1,
+  //   name: 'taylor',
+  //   password: 'password',
+  // } };
+  //
+  // beforeEach(() => {
+  //   fetchMock.post('http://localhost:3000/api/users', {
+  //     body: data,
+  //   });
+  // });
+
+
+  it.only('should start with state that\'s entirely empty strings', () => {
     const dom = shallow(<CreateAccount />);
 
     expect(dom.state().name).toEqual('');
@@ -40,8 +60,30 @@ describe('CreateAccount test', () => {
     expect(dom.find('.create-account-container')).toHaveLength(1);
   });
 
-  // it('should...', () => {})
-  // it('should...', () => {})
-  // it('should...', () => {})
-  // it('should...', () => {})
+
+// from George's login tests
+  it.skip('should render 2 input fields', () => {
+
+  });
+  it.skip('should have state with 3 empty strings to start off', () => {
+
+  });
+  it.skip('should have a prop that dispatches an action to log a user in', () => {
+
+  });
+  it.skip('submit button should not be clickable if input fields are empty', () => {
+
+  });
+  it.skip('should fire a function when the inputs are filled and the button is clicked', () => {
+
+  });
+  it.skip('state should update on change of the input fields', () => {
+
+  });
+  it.skip('should render an error if the login credentials are incorrect', () => {
+
+  });
+  it.skip('state should update if authentication is successful', () => {
+
+  });
 });
