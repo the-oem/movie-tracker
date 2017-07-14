@@ -10,7 +10,9 @@ describe('Header test', () => {
     expect(dom.find('.header')).toHaveLength(1);
   });
 
-  // it('should...', () => {})
+  it('should render a header element', () => {
+
+  });
   // it('should...', () => {})
   // it('should...', () => {})
   // it('should...', () => {})
