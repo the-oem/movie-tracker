@@ -23,14 +23,22 @@ h1 {
   text-align: center;
 }
 
+.shelf-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  padding: 10px 40px;
+}
+
 .movie {
   margin: 15px;
 }
 
 .movie-poster {
+  display: block;
   height: 200px;
   border-color: transparent;
   border-image: url('./assets/blu-ray-case.png') 100 stretch;
   border-style: solid;
   border-width: 15px 2px 2px;
+  margin: auto;
 }
