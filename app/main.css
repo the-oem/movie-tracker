@@ -26,7 +26,6 @@ h1 {
 .shelf-view {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  padding: 10px 40px;
 }
 
 .movie {
@@ -41,4 +40,11 @@ h1 {
   border-style: solid;
   border-width: 15px 2px 2px;
   margin: auto;
+}
+
+@media screen and (min-width: 900px) {
+  .shelf-view {
+    padding: 10px 40px;
+  }
+  
 }
