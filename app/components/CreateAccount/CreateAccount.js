@@ -21,6 +21,7 @@ export default class CreateAccount extends Component {
   }
 
   render() {
+    const errorMessage = this.state.message === 'Internal Server Error' ? 'Email has already been used' : '';
     return (
       <div className='create-account-container'>
         <form>
@@ -29,7 +30,7 @@ export default class CreateAccount extends Component {
           <input type='text' value={this.state.password} placeholder='Password' onChange={(e) => { this.setState({ password: e.target.value }); }}/>
           <button onClick={this.handleClick.bind(this)}>Create Account</button>
         </form>
-        <h1>errorMessage</h1>
+        <h1>{errorMessage}</h1>
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
 import { items, itemsHasErrored, itemsIsLoading } from './items-reducer';
 import { userIsAuthenticated, userAuthenticationSuccess, userAuthenticationFailure } from './user-reducer';
-import { routerReducer } from 'react-router-redux';
 
 const rootReducer = combineReducers({
   items,

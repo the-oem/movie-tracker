@@ -5,14 +5,15 @@
 // '/create-account'
 
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-
+import { Route, Redirect } from 'react-router-dom';
 import Header from './Header/Header';
 import ShelfViewContainer from '../containers/ShelfView/ShelfViewContainer';
 import Login from '../components/Login/Login';
 import FavoritesContainer from '../containers/Favorites/FavoritesContainer';
+import HeaderContainer from '../containers/Header/HeaderContainer';
 import LoginContainer from '../containers/Login/LoginContainer';
 import CreateAccount from '../components/CreateAccount/CreateAccount';
+
 
 export default class App extends Component {
 
@@ -20,14 +21,14 @@ export default class App extends Component {
     const { items } = this.props;
     return (
       <div>
-        <Header />
+        <HeaderContainer />
         <Route exact path='/' render={({ match }) => <ShelfViewContainer /> } />
 
-        <Route exact path='/login' render={({ match }) => <LoginContainer />} />
+        <Route exact path='/login' render={() =>
+          (this.props.userIsAuthenticated ? <Redirect to='/' /> : <LoginContainer />)} />
 
         <Route exact path='/favorites' render={({ match }) => <FavoritesContainer /> } />
 
-        {/* <Route exact path='/create-account' render={({ match }) => <CreateAccountContainer /> } /> */}
         <Route exact path='/create-account' component={CreateAccount} />
 
         {/* <Route path='/movies' render={({ match }) => {
