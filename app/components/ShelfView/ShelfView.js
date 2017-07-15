@@ -11,17 +11,27 @@ export default class ShelfView extends Component {
 
   handleFavorite(movie) {
     console.log('Adding to favorites ', movie.title, movie.id);
-    console.log(this.props.addFavorite(movie));
+    console.log('props', this.props);
+
+    if (this.props.userId === '' || this.props.userId === undefined) {
+      console.log('user not logged in, figure out how to redirect', this);
+      // TODO Figure out how to redirect to /login
+    } else {
+      this.props.addFavorite(this.props.userId, movie);
+    }
   }
 
   render() {
+    // TODO Add a nicer 'loading' screen. Maybe a div with a nice looking film spinner.
     const content = this.props.isLoading ?
       'loading..' :
-      this.props.items.map((movie, i) => <Movie key={movie.title + i} data={movie} handleFavorite={this.handleFavorite.bind(this)}/>);
+      this.props.items.map((movie, i) => <Movie
+        key={movie.title + i}
+        movie={movie}
+        handleFavorite={this.handleFavorite.bind(this)} />);
 
     return (
       <div className='shelf-view'>
-        <Route exact path='/testing' render={({ match }) => <LoginContainer />} />
         {content}
       </div>
     );

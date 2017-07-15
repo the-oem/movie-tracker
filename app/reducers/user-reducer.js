@@ -35,3 +35,16 @@ export const userAuthenticationSuccess = (state = {}, action) => {
       return state;
   }
 };
+
+export const userAddFavorite = (state = {}, action) => {
+  console.log('in the reducer', action);
+  switch (action.type) {
+    case 'USER_ADD_FAVORITE':
+      return {
+        addFavoriteMessage: action.message,
+      };
+
+    default:
+      return state;
+  }
+};

@@ -1,4 +1,4 @@
-import { NEW_MOVIES_URL, IMAGE_URL, GET_USER_URL, CREATE_USER_URL } from './constants';
+import { NEW_MOVIES_URL, IMAGE_URL, GET_USER_URL, CREATE_USER_URL, ADD_FAVORITE_URL } from './constants';
 
 export default class ApiUtils {
   constructor(url = NEW_MOVIES_URL) {
@@ -72,20 +72,48 @@ export default class ApiUtils {
     .catch(error => component.setState({ message: error.message }));
   }
 
-  addFavorite(component, { movie_id, user_id, title, poster_path, release_date, vote_average, overview }) {
+/*
+alpha_id
+:
+"Wonder_Woman"
+id
+:
+297762
+overview
+:
+"An Amazon princess comes to the world of Man to become the greatest of the female superheroes."
+popularity
+:
+57.363659
+poster
+:
+"https://image.tmdb.org/t/p/w500/imekS7f1OuHyUP2LAiTEM0zBzUz.jpg"
+releaseDate
+:
+"2017-05-30"
+title
+:
+"Wonder Woman"
+voteAverage
+:
+7.1
+*/
+
+  addFavorite(userId, movie) {
+    console.log('Add favorite fetch call...', userId, movie);
     return fetch(ADD_FAVORITE_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        movie_id,
-        user_id,
-        title,
-        poster_path,
-        release_date,
-        vote_average,
-        overview,
+        movie_id: movie.id,
+        user_id: userId,
+        title: movie.title,
+        poster_path: movie.poster,
+        release_date: movie.releaseDate,
+        vote_average: movie.voteAverage,
+        overview: movie.overview,
       }),
     })
     .then((response) => {
@@ -93,8 +121,7 @@ export default class ApiUtils {
         throw Error(response.statusText);
       }
       return response.json();
-    }).then(data => component.setState({ message: data.message, status: data.status }))
-    .catch(error => component.setState({ message: error.message }));
+    }).catch(error => error);
   }
 
   deleteFavorite() {

@@ -1,14 +1,17 @@
 import React from 'react';
 import { object } from 'prop-types';
 
-const Movie = ({ data, handleFavorite }) => {
+const Movie = ({ movie, handleFavorite }) => {
   function handleClick() {
-    handleFavorite(data);
+    handleFavorite(movie);
   }
 
   return (
     <div className='movie' onClick={handleClick}>
-      <img className='movie-poster' src={`${data.poster}`} />
+      <div className='poster-favorite-container'>
+        <img className='movie-poster' src={`${movie.poster}`} />
+        <div className='favorite-btn'></div>
+      </div>
     </div>
   );
 };
