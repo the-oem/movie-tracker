@@ -1,10 +1,9 @@
 import { connect } from 'react-redux';
 import ShelfView from '../../components/ShelfView/ShelfView';
-import { makeFetchCall } from '../../actions/items';
-import { addToFavorites } from '../../actions/users';
+import { fetchMoviesAction } from '../../actions/items';
+import { fetchFavoritesAction, addFavoriteAction } from '../../actions/favorites';
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     items: state.items,
     favorites: state.favorites,
@@ -16,8 +15,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchData: () => dispatch(makeFetchCall()),
-    addFavorite: (userId, movie) => dispatch(addToFavorites(userId, movie)),
+    fetchMovies: () => dispatch(fetchMoviesAction()),
+    fetchFavorites: userId => dispatch(fetchFavoritesAction(userId)),
+    addFavorite: (userId, movie) => dispatch(addFavoriteAction(userId, movie)),
   };
 };
 

@@ -1,5 +1,3 @@
-
-
 export const userIsAuthenticated = (state = false, action) => {
   switch (action.type) {
     case 'USER_AUTHENTICATED':
@@ -29,19 +27,6 @@ export const userAuthenticationSuccess = (state = {}, action) => {
       return {
         name: action.user.data.name,
         user_id: action.user.data.id,
-      };
-
-    default:
-      return state;
-  }
-};
-
-export const userAddFavorite = (state = {}, action) => {
-  console.log('in the reducer', action);
-  switch (action.type) {
-    case 'USER_ADD_FAVORITE':
-      return {
-        addFavoriteMessage: action.message,
       };
 
     default:

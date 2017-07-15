@@ -6,14 +6,16 @@ import Login from '../Login/Login';
 
 export default class ShelfView extends Component {
   componentDidMount() {
-    this.props.fetchData();
+    this.props.fetchMovies();
+    if (this.props.userId !== undefined) {
+      this.props.fetchFavorites(this.props.userId);
+    }
   }
 
   handleFavorite(movie) {
     console.log('Adding to favorites ', movie.title, movie.id);
-    console.log('props', this.props);
 
-    if (this.props.userId === '' || this.props.userId === undefined) {
+    if (this.props.userId === undefined) {
       console.log('user not logged in, figure out how to redirect', this);
       // TODO Figure out how to redirect to /login
     } else {
