@@ -32,6 +32,13 @@ h1 {
   margin: 15px;
 }
 
+.poster-favorite-container {
+  position: relative;
+  width: 100px;
+  margin: auto;
+  
+}
+
 .movie-poster {
   display: block;
   height: 200px;
@@ -39,7 +46,24 @@ h1 {
   border-image: url('./assets/blu-ray-case.png') 94 stretch;
   border-style: solid;
   border-width: 16px 0 0;
-  margin: auto;
+}
+
+.favorite-btn {
+  position: absolute;
+  top: -10px;
+  left: -12px;
+  width: 35px;
+  height: 35px;
+  background: url('./assets/favorite.svg');
+  cursor: pointer;
+}
+
+.favorite-btn .active {
+  background: url('./assets/favorite-active.svg');
+}
+
+.favorite-btn:hover {
+  background: url('./assets/favorite-hover.svg');
 }
 
 @media screen and (min-width: 900px) {
@@ -48,9 +72,20 @@ h1 {
     padding: 10px 40px;
   }
   
+  .poster-favorite-container {
+    width: 248px;
+  }
+  
   .movie-poster {
     height: 400px;
     border-image: url('./assets/blu-ray-case.png') 94 stretch;
     border-width: 28px 0 0;
+  }
+  
+  .favorite-btn {
+    top: -17px;
+    left: -16px;
+    width: 64px;
+    height: 64px;
   }
 }
