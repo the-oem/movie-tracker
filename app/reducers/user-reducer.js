@@ -13,7 +13,7 @@ export const userIsAuthenticated = (state = false, action) => {
 export const userAuthenticationFailure = (state = {}, action) => {
   switch (action.type) {
     case 'USER_AUTHENTICATION_FAILURE':
-      return { error_msg: action.error.message };
+      return action.error.message;
 
     case 'USER_AUTHENTICATION_SUCCESS':
       return {};
