@@ -35,3 +35,10 @@ export const makeUserCall = ({ email, password }) => {
       });
   };
 };
+
+export const addToFavorites = (movie) => {
+  console.log('in the action, adding favorite');
+  return (dispatch) => {
+    dispatch();
+  };
+};

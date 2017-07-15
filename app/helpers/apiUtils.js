@@ -72,6 +72,45 @@ export default class ApiUtils {
     .catch(error => component.setState({ message: error.message }));
   }
 
+  addFavorite(component, { movie_id, user_id, title, poster_path, release_date, vote_average, overview }) {
+    return fetch(ADD_FAVORITE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        movie_id,
+        user_id,
+        title,
+        poster_path,
+        release_date,
+        vote_average,
+        overview,
+      }),
+    })
+    .then((response) => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response.json();
+    }).then(data => component.setState({ message: data.message, status: data.status }))
+    .catch(error => component.setState({ message: error.message }));
+  }
+
+  deleteFavorite() {
+    return { status: 'success', message: 'Some row was deleted.' };
+  }
+
+  getFavorites() {
+    return {
+      status: 'success',
+      data: [
+        { title: 'title' },
+      ],
+      message: 'Retrieved All favorites',
+    };
+  }
+
   stripNonAlpha(input) {
     if (typeof input === 'string') {
       return input.replace(/\W+/g, '_');

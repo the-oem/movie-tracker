@@ -9,10 +9,15 @@ export default class ShelfView extends Component {
     this.props.fetchData();
   }
 
+  handleFavorite(movie) {
+    console.log('Adding to favorites ', movie.title, movie.id);
+    console.log(this.props.addFavorite(movie));
+  }
+
   render() {
     const content = this.props.isLoading ?
       'loading..' :
-      this.props.items.map((movie, i) => <Movie key={movie.title + i} data={movie}/>);
+      this.props.items.map((movie, i) => <Movie key={movie.title + i} data={movie} handleFavorite={this.handleFavorite.bind(this)}/>);
 
     return (
       <div className='shelf-view'>
