@@ -1,8 +1,10 @@
 import React from 'react';
 import { object } from 'prop-types';
+import { removeFromCache } from '../../helpers/storageUtils';
 
 const Header = (props) => {
   function handleLogout() {
+    removeFromCache('authenticatedUser');
     props.logUserOut();
   }
 

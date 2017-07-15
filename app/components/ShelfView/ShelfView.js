@@ -3,10 +3,16 @@ import { object } from 'prop-types';
 import { Route } from 'react-router-dom';
 import Movie from '../Movie/Movie';
 import Login from '../Login/Login';
+import { getFromCache } from '../../helpers/storageUtils';
 
 export default class ShelfView extends Component {
   componentDidMount() {
     this.props.fetchData();
+
+    const user = getFromCache('authenticatedUser');
+    if (user) {
+      this.props.logUserIn(user);
+    }
   }
 
   render() {

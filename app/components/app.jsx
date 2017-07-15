@@ -14,7 +14,6 @@ import HeaderContainer from '../containers/Header/HeaderContainer';
 import LoginContainer from '../containers/Login/LoginContainer';
 import CreateAccount from '../components/CreateAccount/CreateAccount';
 
-
 export default class App extends Component {
 
   render() {

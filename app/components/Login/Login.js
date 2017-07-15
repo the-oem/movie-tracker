@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { object } from 'prop-types';
+import { getFromCache } from '../../helpers/storageUtils';
 
 
 export default class Login extends Component {
@@ -12,6 +13,9 @@ export default class Login extends Component {
     };
   }
 
+  componentDidMount() {
+
+  }
 
   submitAuthentication(e) {
     e.preventDefault();
