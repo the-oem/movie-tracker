@@ -13,19 +13,19 @@ export default class App extends Component {
     const { items } = this.props;
     return (
       <div>
-        <HeaderContainer />
-        <Route exact path='/' render={({ match }) => <ShelfViewContainer /> } />
+
+        <HeaderContainer {...this.props}/>
+        <Route exact path='/' render={({ match }) => <ShelfViewContainer location='home' /> } />
 
         <Route exact path='/login' render={props =>
           (this.props.userIsAuthenticated ? <Redirect to='/' /> : <LoginContainer {...props} />)} />
 
-        <Route exact path='/favorites' render={({ match }) => <FavoritesContainer /> } />
+        <Route exact path='/favorites' render={({ match }) => <ShelfViewContainer location='favorites' /> } />
 
         <Route exact path='/create-account' component={CreateAccount} />
 
         {/* <Route path='/movies' render={({ match }) => {
           // const moovie = items.find(movie => movie.id === parseInt(match.params.id, 10));
-          console.log(items);
         }} /> */}
 
         {/* <Route path='/ideas/:id' render={({ match }) => {

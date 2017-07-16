@@ -25,12 +25,12 @@ export default class CreateAccount extends Component {
     return (
       <div className='create-account-container'>
         <form>
-          <input type='text' value={this.state.name} placeholder='Name' onChange={(e) => { this.setState({ name: e.target.value }); }}/>
-          <input type='text' value={this.state.email} placeholder='Email' onChange={(e) => { this.setState({ email: e.target.value }); }}/>
-          <input type='text' value={this.state.password} placeholder='Password' onChange={(e) => { this.setState({ password: e.target.value }); }}/>
-          <button onClick={this.handleClick.bind(this)}>Create Account</button>
+          <input className='name-input' type='text' value={this.state.name} placeholder='Name' onChange={(e) => { this.setState({ name: e.target.value }); }}/>
+          <input className='email-input' type='text' value={this.state.email} placeholder='Email' onChange={(e) => { this.setState({ email: e.target.value }); }}/>
+          <input className='password-input' type='text' value={this.state.password} placeholder='Password' onChange={(e) => { this.setState({ password: e.target.value }); }}/>
+          <button className='create-account-submit-btn' onClick={this.handleClick.bind(this)}>Create Account</button>
         </form>
-        <h1>{errorMessage}</h1>
+        <h1 className='error-msg'>{errorMessage}</h1>
       </div>
     );
   }

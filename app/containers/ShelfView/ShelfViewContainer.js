@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import ShelfView from '../../components/ShelfView/ShelfView';
 import { fetchMoviesAction } from '../../actions/items';
 import { fetchFavoritesAction, addFavoriteAction, deleteFavoriteAction } from '../../actions/favorites';
-import { userIsAuthenticated, userAuthenticationSuccess } from '../../actions/users';
+import { userIsAuthenticated, userAuthenticationSuccess, userLoginFromCache } from '../../actions/users';
 
 const mapStateToProps = (state) => {
   return {
@@ -10,8 +10,6 @@ const mapStateToProps = (state) => {
     favorites: state.favorites,
     hasErrored: state.itemsHasErrored,
     isLoading: state.itemsIsLoading,
-    fetchData: state.fetchData,
-    logUserIn: state.logUserIn,
     userId: state.userAuthenticationSuccess.user_id,
   };
 };
@@ -21,11 +19,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchMovies: () => dispatch(fetchMoviesAction()),
     fetchFavorites: userId => dispatch(fetchFavoritesAction(userId)),
     addFavorite: (userId, movie) => dispatch(addFavoriteAction(userId, movie)),
-    logUserIn: (user) => {
-      dispatch(userIsAuthenticated(true));
-      dispatch(userAuthenticationSuccess({ data: { name: user.name, id: user.id } }));
-      dispatch(fetchFavoritesAction(user.id));
-    },
+    logUserIn: user => dispatch(userLoginFromCache(user)),
     deleteFavorite: (userId, movie) => dispatch(deleteFavoriteAction(userId, movie)),
   };
 };

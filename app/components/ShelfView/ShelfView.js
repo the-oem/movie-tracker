@@ -18,7 +18,7 @@ export default class ShelfView extends Component {
     const user = getFromCache('authenticatedUser');
     if (user) {
       this.props.logUserIn(user);
-      this.props.fetchFavorites(user.id);
+      // this.props.fetchFavorites(user.id);
     }
   }
 
@@ -27,7 +27,7 @@ export default class ShelfView extends Component {
       console.log('user not logged in, figure out how to redirect', this);
       // TODO Figure out how to redirect to /login
     } else {
-      const exists = this.props.favorites.find(element => element.movie_id === movie.id);
+      const exists = this.props.favorites.find(element => element.movie_id === movie.movie_id);
       (exists) ?
         this.props.deleteFavorite(this.props.userId, movie) :
         this.props.addFavorite(this.props.userId, movie);
@@ -41,16 +41,18 @@ export default class ShelfView extends Component {
 
   render() {
     // TODO Add a nicer 'loading' screen. Maybe a div with a nice looking film spinner.
+    const renderData = (this.props.location === 'favorites') ?
+      this.props.favorites : this.props.items;
 
     const content = this.props.isLoading ?
       'loading..' :
-      this.props.items.map((movie, i) => {
+      renderData.map((movie, i) => {
         return <Movie
           displayInfo={this.state.displayInfo}
           showMore = {this.showMore.bind(this)}
           key={movie.title + i}
           movie={movie}
-          favorite={this.props.favorites.find(element => element.movie_id === movie.id)}
+          favorite={this.props.favorites.find(element => element.movie_id === movie.movie_id)}
           handleFavorite={this.handleFavorite.bind(this)} />;
       });
 

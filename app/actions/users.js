@@ -1,5 +1,6 @@
 import ApiUtils from '../helpers/apiUtils';
 import { saveToCache } from '../helpers/storageUtils';
+import { fetchFavoritesAction } from './favorites';
 
 export const userIsAuthenticated = (bool) => {
   return {
@@ -29,6 +30,14 @@ export const saveUserToCache = (response) => {
   };
 };
 
+export const userLoginFromCache = (user) => {
+  return (dispatch) => {
+    dispatch(userIsAuthenticated(true));
+    dispatch(userAuthenticationSuccess({ data: { name: user.name, id: user.id } }));
+    dispatch(fetchFavoritesAction(user.id));
+  };
+};
+
 export const makeUserCall = ({ email, password }) => {
   return (dispatch) => {
     return new ApiUtils().fetchUser(email, password)
@@ -37,6 +46,7 @@ export const makeUserCall = ({ email, password }) => {
         dispatch(userIsAuthenticated(true));
         dispatch(userAuthenticationSuccess(response));
         saveToCache('authenticatedUser', response.data);
+        dispatch(fetchFavoritesAction(response.data.id));
       })
       .catch((err) => {
         dispatch(userIsAuthenticated(false));

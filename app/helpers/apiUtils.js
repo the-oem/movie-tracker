@@ -22,8 +22,9 @@ export default class ApiUtils {
           releaseDate: movie.release_date,
           overview: movie.overview,
           voteAverage: movie.vote_average,
-          poster: imageData[index].url,
+          poster_path: imageData[index].url,
           id: movie.id,
+          movie_id: movie.id,
           alpha_id: this.stripNonAlpha(movie.title),
         };
       });
@@ -79,10 +80,10 @@ export default class ApiUtils {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        movie_id: movie.id,
+        movie_id: movie.movie_id,
         user_id: userId,
         title: movie.title,
-        poster_path: movie.poster,
+        poster_path: movie.poster_path,
         release_date: movie.releaseDate,
         vote_average: movie.voteAverage,
         overview: movie.overview,
@@ -97,7 +98,7 @@ export default class ApiUtils {
   }
 
   deleteFavorite(userId, movie) {
-    const url = DELETE_FAVORITE_URL.replace('{user_id}', userId).replace('{movie_id}', movie.id);
+    const url = DELETE_FAVORITE_URL.replace('{user_id}', userId).replace('{movie_id}', movie.movie_id);
     return fetch(url, {
       method: 'DELETE',
       headers: {
