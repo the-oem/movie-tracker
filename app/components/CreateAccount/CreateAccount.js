@@ -30,7 +30,7 @@ export default class CreateAccount extends Component {
           <input className='password-input' type='text' value={this.state.password} placeholder='Password' onChange={(e) => { this.setState({ password: e.target.value }); }}/>
           <button className='create-account-submit-btn' onClick={this.handleClick.bind(this)}>Create Account</button>
         </form>
-        <h1>{errorMessage}</h1>
+        <h1 className='error-msg'>{errorMessage}</h1>
       </div>
     );
   }

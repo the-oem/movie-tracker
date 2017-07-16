@@ -1,9 +1,16 @@
 import React from 'react';
 import fetchMock from 'fetch-mock';
+import { Provider } from 'react-redux';
 import { shallow, mount } from 'enzyme';
 import CreateAccount from './CreateAccount';
-// import configureMockStore from 'redux-mock-store';
-// import { Provider } from 'react-redux';
+
+const thunk = ({ dispatch, getState }) => next => (action) => {
+  if (typeof action === 'function') {
+    return action(dispatch, getState);
+  }
+
+  return next(action);
+};
 
 function resolveAfter2Seconds() {
   return new Promise((resolve) => {
@@ -14,22 +21,34 @@ function resolveAfter2Seconds() {
 }
 
 
-describe('CreateAccount test', () => {
-  // const mockStore = configureMockStore();
-  // const wrapper = mount(<Provider store={mockStore}><LoginContainer history={'http://localhost:3000/'}/></Provider>);
-  //
-  // const data = { data: {
-  //   email: 'tman2272@aol.com',
-  //   id: 1,
-  //   name: 'taylor',
-  //   password: 'password',
-  // } };
-  //
-  // beforeEach(() => {
-  //   fetchMock.post('http://localhost:3000/api/users', {
-  //     body: data,
-  //   });
-  // });
+const create = () => {
+  const store = {
+    getState: jest.fn(() => ({})),
+    dispatch: jest.fn(),
+  };
+  const next = jest.fn();
+
+  const invoke = action => thunk(store)(next)(action);
+
+  return { store, next, invoke };
+};
+
+
+describe('CREATE ACCOUNT COMPONENT TEST', () => {
+  const middlewares = [thunk];
+  const wrapper = mount(<CreateAccount />);
+  const initialState = {
+    name: '',
+    email: '',
+    password: '',
+    message: '',
+    status: '',
+  };
+  const data = { data: {
+    email: 'jman1234@aol.com',
+    name: 'jhun',
+    password: 'password1',
+  } };
 
   it('should render a container element', () => {
     const dom = shallow(<CreateAccount />);
@@ -81,29 +100,41 @@ describe('CreateAccount test', () => {
     expect(dom.state()).toEqual(expectedState);
   });
 
-  it('should have a prop that dispatches an action to create an account', () => {
-    // const dom = wrapper.find('CreateAccount');
-    // const button = wrapper.find('button');
-    //
-    // button.simulate('click');
-    //
-    // await resolveAfter2Seconds();
-    //
-    // const actions = mockStore.getActions();
-    // expect(actions.length).toEqual(2);
-    // expect(actions[0].type).toEqual('USER_AUTHENTICATED');
-    // expect(actions[1].type).toEqual('USER_AUTHENTICATION_SUCCESS');
+  it('should fire a function when the inputs are filled and the button is clicked', () => {
+    fetchMock.post('/api/users', {
+      body: JSON.stringify(data),
+    });
+    fetchMock.post('/api/users/new', {
+      body: JSON.stringify(data),
+    }).catch();
+
+    const mockFn = jest.fn();
+    const dom = shallow(<CreateAccount handleClick={mockFn()}/>);
+    const nameInput = dom.find('.name-input');
+    const emailInput = dom.find('.email-input');
+    const passwordInput = dom.find('.password-input');
+    const button = dom.find('button');
+
+    nameInput.simulate('change', { target: { value: 'Bobbie Joe' } });
+    emailInput.simulate('change', { target: { value: 'Bobbie.Joe@yahoo.com' } });
+    passwordInput.simulate('change', { target: { value: 'heyyyyBobbie1234' } });
+    button.simulate('click', { preventDefault: () => {} });
+
+    expect(mockFn).toHaveBeenCalled();
+
+    expect(fetchMock.calls().unmatched).toEqual([]);
+    fetchMock.restore();
   });
 
-  it.skip('submit button should not be clickable if input fields are empty', () => {
+  it('should render an error if the email is already associated with an account', () => {
     const dom = shallow(<CreateAccount />);
-  });
 
-  it.skip('should fire a function when the inputs are filled and the button is clicked', () => {
+    expect(dom.state().message).toEqual('');
 
-  });
+    dom.setState({ message: 'Internal Server Error' });
 
-  it.skip('should render an error if the login credentials are incorrect', () => {
-
+    const errorMsg = dom.find('.error-msg');
+    expect(dom.state().message).toEqual('Internal Server Error');
+    expect(errorMsg.text()).toEqual('Email has already been used');
   });
 });
