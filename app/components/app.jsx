@@ -25,7 +25,6 @@ export default class App extends Component {
 
         {/* <Route path='/movies' render={({ match }) => {
           // const moovie = items.find(movie => movie.id === parseInt(match.params.id, 10));
-          console.log(items);
         }} /> */}
 
         {/* <Route path='/ideas/:id' render={({ match }) => {

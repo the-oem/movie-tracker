@@ -11,7 +11,7 @@ const Movie = ({ movie, handleFavorite, favorite }) => {
   return (
     <div className='movie'>
       <div className='poster-favorite-container'>
-        <img className='movie-poster' src={`${movie.poster}`} />
+        <img className='movie-poster' src={`${movie.poster_path}`} />
         <div className={renderClass} onClick={handleClick}></div>
       </div>
       <div className='movie-shelf-edge'></div>
