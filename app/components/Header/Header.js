@@ -15,23 +15,23 @@ const Header = (props) => {
       headerBtns = props.userIsAuthenticated ?
         <div className='header-btn-container'>
           <NavLink exact activeClassName='selected' to='/favorites'>
-            <button className='header-fav-btn'>Favorites</button>
+            <button className='header-btn'>Favorites</button>
           </NavLink>
-          <button className='header-logout-btn' onClick={handleLogout.bind(this)}>Logout</button>
+          <button className='header-btn' onClick={handleLogout.bind(this)}>Logout</button>
         </div> :
         <div className='header-btn-container'>
           <NavLink exact activeClassName='selected' to='/create-account'>
-            <button className='header-create-account-btn'>Create Account</button>
+            <button className='header-btn header-create-acct'>Create Account</button>
           </NavLink>
           <NavLink exact activeClassName='selected' to='/login'>
-            <button className='header-login-btn'>Login</button>
+            <button className='header-btn header-login'>Login</button>
           </NavLink>
         </div>;
       break;
     default:
       headerBtns = <div className='header-btn-container'>
         <NavLink exact activeClassName='selected' to='/'>
-          <button className='header-home-btn'>Home</button>
+          <button className='header-btn'>Home</button>
         </NavLink>
       </div>;
   }
