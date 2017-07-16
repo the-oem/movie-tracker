@@ -9,10 +9,10 @@ const Movie = ({ movie, handleFavorite, favorite }) => {
   const renderClass = (favorite) ? 'favorite-btn active' : 'favorite-btn';
 
   return (
-    <div className='movie' onClick={handleClick}>
+    <div className='movie'>
       <div className='poster-favorite-container'>
         <img className='movie-poster' src={`${movie.poster}`} />
-        <div className={renderClass}></div>
+        <div className={renderClass} onClick={handleClick}></div>
       </div>
       <div className='movie-shelf-edge'></div>
     </div>
