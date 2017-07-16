@@ -6,6 +6,7 @@ const Movie = ({ movie, handleFavorite }) => {
     handleFavorite(movie);
   }
 
+
   return (
     <div className='movie' onClick={handleClick}>
       <div className='poster-favorite-container'>
