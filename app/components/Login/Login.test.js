@@ -40,8 +40,6 @@ const create = () => {
 describe('LOGIN COMPONENT TEST', () => {
   const middlewares = [thunk];
   const mockStore = configureMockStore(middlewares)();
-  // let store;
-  // let action;
 
 
   const wrapper = mount(<Provider store={mockStore}><LoginContainer history={'http://localhost:3000/'}/></Provider>);
@@ -75,6 +73,7 @@ describe('LOGIN COMPONENT TEST', () => {
 
   it('should render 2 input fields', () => {
     const dom = shallow(<Login />);
+
     expect(dom.find('input').length).toEqual(2);
   });
 
@@ -90,20 +89,20 @@ describe('LOGIN COMPONENT TEST', () => {
 
   it.skip('Should have props being passed down from container, which are a method and history', () => {
     const login = wrapper.find('Login');
+
     expect(Object.keys(login.props()).length).toEqual(2);
     expect(Object.keys(login.props())[0]).toEqual('history');
     expect(Object.keys(login.props())[1]).toEqual('handleAuthentication');
   });
 
   it('should have a prop that dispatches an action to log a user in', async () => {
-    const login = wrapper.find('Login');
-
     const button = wrapper.find('button');
     button.simulate('click');
 
     await resolveAfter2Seconds();
 
     const actions = mockStore.getActions();
+
     expect(actions.length).toEqual(2);
     expect(actions[0].type).toEqual('USER_AUTHENTICATED');
     expect(actions[1].type).toEqual('USER_AUTHENTICATION_SUCCESS');
@@ -139,8 +138,9 @@ describe('LOGIN COMPONENT TEST', () => {
     expect(wrapper2.state().email).toEqual('testingALL');
     expect(wrapper2.state().password).toEqual('theTHINGS');
   });
+
   it.skip('should render an error if the login credentials are incorrect', () => {
-    //Don't know how to do this one yet
+    // Don't know how to do this one yet
   });
 
 

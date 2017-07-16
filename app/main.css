@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  margin: 0;
+  margin: -.50px;
   font-family: 'Lato', Arial, sans-serif;
 }
 
@@ -48,6 +48,8 @@ h1 {
 }
 
 .movie-shelf-edge {
+  position: relative;
+  top: 10px;
   height: 20px;
   background-color: rgba(138, 93, 48, 0.85);
   box-shadow: 0px -20px rgb(96, 65, 33);
@@ -57,7 +59,10 @@ h1 {
   position: relative;
   width: 122px;
   margin: auto;
+  box-shadow: 10px -4px 20px #28231c;
+  z-index: 1;
 }
+
 
 .movie-poster {
   display: block;
@@ -66,7 +71,9 @@ h1 {
   border-image: url('./assets/blu-ray-case.png') 94 stretch;
   border-style: solid;
   border-width: 16px 0 0;
+  box-shadow: 2px 0  1px #0099df;
 }
+
 
 .favorite-btn {
   position: absolute;
@@ -91,12 +98,12 @@ h1 {
     position: relative;
     height: 100px;
   }
-  
+
   h1 {
     margin-top: 10px;
     font-size: 52px;
   }
-  
+
   .header-btn {
     position: absolute;
     top: 35px;
@@ -109,22 +116,24 @@ h1 {
     cursor: pointer;
     outline: none;
   }
-  
+
   .shelf-view {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    padding: 10px 40px;
+    padding: 10px 0;
   }
-  
+
   .poster-favorite-container {
-    width: 248px;
+    width: 260px;
   }
-  
+
   .movie-poster {
     height: 400px;
+    width: 260px;
     border-image: url('./assets/blu-ray-case.png') 94 stretch;
     border-width: 28px 0 0;
+    border-radius: 5px;
   }
-  
+
   .favorite-btn {
     top: -17px;
     left: -16px;
