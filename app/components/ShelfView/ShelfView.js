@@ -28,7 +28,7 @@ export default class ShelfView extends Component {
 
   render() {
     // TODO Add a nicer 'loading' screen. Maybe a div with a nice looking film spinner.
-    const renderData = (this.props.location === 'favorites') ?
+    const renderData = (this.props.location.pathname === '/favorites') ?
       this.props.favorites : this.props.items;
 
     const content = this.props.isLoading ?
