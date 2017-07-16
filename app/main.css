@@ -44,7 +44,13 @@ h1 {
 }
 
 .movie {
-  margin: 15px;
+  margin: 15px 0;
+}
+
+.movie-shelf-edge {
+  height: 20px;
+  background-color: rgba(138, 93, 48, 0.85);
+  box-shadow: 0px -20px rgb(96, 65, 33);
 }
 
 .poster-favorite-container {

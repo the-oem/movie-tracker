@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { object } from 'prop-types';
+import { getFromCache } from '../../helpers/storageUtils';
 import { Link, NavLink } from 'react-router-dom';
 import { browserHistory } from 'react-router';
-
 
 export default class Login extends Component {
   constructor(props, context) {
@@ -23,7 +23,6 @@ export default class Login extends Component {
       password: 'password',
     });
   }
-
 
   handleClick(e) {
     e.preventDefault();

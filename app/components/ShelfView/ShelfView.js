@@ -3,12 +3,16 @@ import { object } from 'prop-types';
 import { Route } from 'react-router-dom';
 import Movie from '../Movie/Movie';
 import Login from '../Login/Login';
+import { getFromCache } from '../../helpers/storageUtils';
 
 export default class ShelfView extends Component {
+
   componentDidMount() {
     this.props.fetchMovies();
-    if (this.props.userId !== undefined) {
-      this.props.fetchFavorites(this.props.userId);
+    const user = getFromCache('authenticatedUser');
+    if (user) {
+      this.props.logUserIn(user);
+      this.props.fetchFavorites(user.id);
     }
   }
 
@@ -25,6 +29,7 @@ export default class ShelfView extends Component {
 
   render() {
     // TODO Add a nicer 'loading' screen. Maybe a div with a nice looking film spinner.
+
     const content = this.props.isLoading ?
       'loading..' :
       this.props.items.map((movie, i) => <Movie
