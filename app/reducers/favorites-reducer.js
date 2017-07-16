@@ -23,7 +23,6 @@ export const userDeleteFavorite = (state = {}, action) => {
 };
 
 export const favorites = (state = [], action) => {
-  // console.log('state in favorites');
   switch (action.type) {
     case 'USER_FETCH_FAVORITES_SUCCESS':
       return [...action.response.data];
