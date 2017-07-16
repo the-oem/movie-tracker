@@ -6,8 +6,9 @@ import Login from '../Login/Login';
 import { getFromCache } from '../../helpers/storageUtils';
 
 export default class ShelfView extends Component {
+
   componentDidMount() {
-    this.props.fetchData();
+    this.props.fetchMovies();
     const user = getFromCache('authenticatedUser');
     if (user) {
       this.props.logUserIn(user);
@@ -28,6 +29,7 @@ export default class ShelfView extends Component {
 
   render() {
     // TODO Add a nicer 'loading' screen. Maybe a div with a nice looking film spinner.
+
     const content = this.props.isLoading ?
       'loading..' :
       this.props.items.map((movie, i) => <Movie
