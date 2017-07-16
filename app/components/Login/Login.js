@@ -36,7 +36,7 @@ export default class Login extends Component {
         <form>
           <input type='text' value={this.state.email} placeholder='Email' className="email-input" onChange={(e) => { this.setState({ email: e.target.value }); }}/>
           <input type='text' value={this.state.password} placeholder='Password' className="password-input" onChange={(e) => { this.setState({ password: e.target.value }); }}/>
-          <button onClick={this.submitAuthentication.bind(this)}>Login</button>
+          <button className="submit-btn" onClick={this.submitAuthentication.bind(this)}>Login</button>
         </form>
         <h1>{errorMessage}</h1>
         <button onClick={this.handleClick}>Create Account</button>
