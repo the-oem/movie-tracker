@@ -1,9 +1,11 @@
 import React from 'react';
 import { object } from 'prop-types';
+import { removeFromCache } from '../../helpers/storageUtils';
 import { Link, NavLink } from 'react-router-dom';
 
 const Header = (props) => {
   function handleLogout() {
+    removeFromCache('authenticatedUser');
     props.logUserOut();
   }
 
