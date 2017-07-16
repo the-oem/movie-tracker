@@ -13,7 +13,7 @@ export default class App extends Component {
     const { items } = this.props;
     return (
       <div>
-        <HeaderContainer />
+        <HeaderContainer {...this.props}/>
         <Route exact path='/' render={({ match }) => <ShelfViewContainer /> } />
 
         <Route exact path='/login' render={props =>
