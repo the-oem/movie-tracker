@@ -1,4 +1,4 @@
-import { NEW_MOVIES_URL, IMAGE_URL, GET_USER_URL, CREATE_USER_URL } from './constants';
+import { NEW_MOVIES_URL, IMAGE_URL, GET_USER_URL, CREATE_USER_URL, ADD_FAVORITE_URL, GET_FAVORITES_URL } from './constants';
 
 export default class ApiUtils {
   constructor(url = NEW_MOVIES_URL) {
@@ -70,6 +70,45 @@ export default class ApiUtils {
     })
     .then(data => component.setState({ message: data.message, status: data.status }))
     .catch(error => component.setState({ message: error.message }));
+  }
+
+  addFavorite(userId, movie) {
+    console.log('Add favorite fetch call...', userId, movie);
+    return fetch(ADD_FAVORITE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        movie_id: movie.id,
+        user_id: userId,
+        title: movie.title,
+        poster_path: movie.poster,
+        release_date: movie.releaseDate,
+        vote_average: movie.voteAverage,
+        overview: movie.overview,
+      }),
+    })
+    .then((response) => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response.json();
+    }).catch(error => error);
+  }
+
+  deleteFavorite() {
+    return { status: 'success', message: 'Some row was deleted.' };
+  }
+
+  getFavorites(userId) {
+    return fetch(GET_FAVORITES_URL.replace('{user_id}', userId))
+    .then((response) => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response.json();
+    }).catch(error => error);
   }
 
   stripNonAlpha(input) {

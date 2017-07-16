@@ -1,14 +1,8 @@
-// We want these paths:
-// '/'
-// '/favorites'
-// '/login'
-// '/create-account'
-
 import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import Header from './Header/Header';
-import ShelfViewContainer from '../containers/ShelfView/ShelfViewContainer';
 import Login from '../components/Login/Login';
+import ShelfViewContainer from '../containers/ShelfView/ShelfViewContainer';
 import FavoritesContainer from '../containers/Favorites/FavoritesContainer';
 import HeaderContainer from '../containers/Header/HeaderContainer';
 import LoginContainer from '../containers/Login/LoginContainer';

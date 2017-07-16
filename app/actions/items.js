@@ -21,7 +21,7 @@ export const itemsFetchDataSuccess = (items) => {
   };
 };
 
-export const makeFetchCall = () => {
+export const fetchMoviesAction = () => {
   return (dispatch) => {
     dispatch(itemsIsLoading(true));
     return new ApiUtils().fetchMovies()
