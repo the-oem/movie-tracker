@@ -12,6 +12,7 @@ const Movie = ({ movie, handleFavorite }) => {
         <img className='movie-poster' src={`${movie.poster}`} />
         <div className='favorite-btn'></div>
       </div>
+      <div className='movie-shelf-edge'></div>
     </div>
   );
 };
