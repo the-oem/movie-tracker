@@ -14,12 +14,12 @@ export default class App extends Component {
     return (
       <div>
         <HeaderContainer />
-        <Route exact path='/' render={({ match }) => <ShelfViewContainer /> } />
+        <Route exact path='/' render={({ match }) => <ShelfViewContainer location='home' /> } />
 
         <Route exact path='/login' render={props =>
           (this.props.userIsAuthenticated ? <Redirect to='/' /> : <LoginContainer {...props} />)} />
 
-        <Route exact path='/favorites' render={({ match }) => <FavoritesContainer /> } />
+        <Route exact path='/favorites' render={({ match }) => <ShelfViewContainer location='favorites' /> } />
 
         <Route exact path='/create-account' component={CreateAccount} />
 
