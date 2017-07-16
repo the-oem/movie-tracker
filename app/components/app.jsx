@@ -9,7 +9,6 @@ import LoginContainer from '../containers/Login/LoginContainer';
 import CreateAccount from '../components/CreateAccount/CreateAccount';
 
 export default class App extends Component {
-
   render() {
     const { items } = this.props;
     return (
@@ -17,8 +16,8 @@ export default class App extends Component {
         <HeaderContainer />
         <Route exact path='/' render={({ match }) => <ShelfViewContainer /> } />
 
-        <Route exact path='/login' render={() =>
-          (this.props.userIsAuthenticated ? <Redirect to='/' /> : <LoginContainer />)} />
+        <Route exact path='/login' render={props =>
+          (this.props.userIsAuthenticated ? <Redirect to='/' /> : <LoginContainer {...props} />)} />
 
         <Route exact path='/favorites' render={({ match }) => <FavoritesContainer /> } />
 
