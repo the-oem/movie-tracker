@@ -5,6 +5,14 @@ import CreateAccount from './CreateAccount';
 // import configureMockStore from 'redux-mock-store';
 // import { Provider } from 'react-redux';
 
+function resolveAfter2Seconds() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, 2000);
+  });
+}
+
 
 describe('CreateAccount test', () => {
   // const mockStore = configureMockStore();
@@ -23,8 +31,27 @@ describe('CreateAccount test', () => {
   //   });
   // });
 
+  it('should render a container element', () => {
+    const dom = shallow(<CreateAccount />);
 
-  it.only('should start with state that\'s entirely empty strings', () => {
+    expect(dom.find('.create-account-container')).toHaveLength(1);
+  });
+
+  it('should render 3 input fields', () => {
+    const dom = shallow(<CreateAccount />);
+    const inputs = dom.find('input');
+
+    expect(inputs).toHaveLength(3);
+  });
+
+  it('should render 1 button', () => {
+    const dom = shallow(<CreateAccount />);
+    const inputs = dom.find('button');
+
+    expect(inputs).toHaveLength(1);
+  });
+
+  it('should start with state that is entirely empty strings', () => {
     const dom = shallow(<CreateAccount />);
 
     expect(dom.state().name).toEqual('');
@@ -54,36 +81,29 @@ describe('CreateAccount test', () => {
     expect(dom.state()).toEqual(expectedState);
   });
 
-  it('renders a container element', () => {
-    const dom = shallow(<CreateAccount />);
-
-    expect(dom.find('.create-account-container')).toHaveLength(1);
+  it('should have a prop that dispatches an action to create an account', () => {
+    // const dom = wrapper.find('CreateAccount');
+    // const button = wrapper.find('button');
+    //
+    // button.simulate('click');
+    //
+    // await resolveAfter2Seconds();
+    //
+    // const actions = mockStore.getActions();
+    // expect(actions.length).toEqual(2);
+    // expect(actions[0].type).toEqual('USER_AUTHENTICATED');
+    // expect(actions[1].type).toEqual('USER_AUTHENTICATION_SUCCESS');
   });
 
-
-// from George's login tests
-  it.skip('should render 2 input fields', () => {
-
-  });
-  it.skip('should have state with 3 empty strings to start off', () => {
-
-  });
-  it.skip('should have a prop that dispatches an action to log a user in', () => {
-
-  });
   it.skip('submit button should not be clickable if input fields are empty', () => {
-
+    const dom = shallow(<CreateAccount />);
   });
+
   it.skip('should fire a function when the inputs are filled and the button is clicked', () => {
 
   });
-  it.skip('state should update on change of the input fields', () => {
 
-  });
   it.skip('should render an error if the login credentials are incorrect', () => {
-
-  });
-  it.skip('state should update if authentication is successful', () => {
 
   });
 });

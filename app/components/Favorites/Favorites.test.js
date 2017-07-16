@@ -8,7 +8,7 @@ describe('Favorites component tests', () => {
     expect(wrapper.find('.favorites-container')).toHaveLength(1);
   });
 
-  it.skip('should render a individual favorites cards', () => {
+  it.skip('should render individual favorites cards', () => {
 
   });
 });
