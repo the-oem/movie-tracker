@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import ShelfView from '../../components/ShelfView/ShelfView';
 import { fetchMoviesAction } from '../../actions/items';
 import { fetchFavoritesAction, addFavoriteAction, deleteFavoriteAction } from '../../actions/favorites';
@@ -24,4 +25,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShelfView);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ShelfView));

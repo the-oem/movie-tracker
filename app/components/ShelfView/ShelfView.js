@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { object } from 'prop-types';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import Movie from '../Movie/Movie';
 import Login from '../Login/Login';
 import { getFromCache } from '../../helpers/storageUtils';
@@ -12,14 +12,12 @@ export default class ShelfView extends Component {
     const user = getFromCache('authenticatedUser');
     if (user) {
       this.props.logUserIn(user);
-      // this.props.fetchFavorites(user.id);
     }
   }
 
   handleFavorite(movie) {
     if (this.props.userId === undefined) {
-      console.log('user not logged in, figure out how to redirect', this);
-      // TODO Figure out how to redirect to /login
+      this.props.history.push('/login');
     } else {
       const exists = this.props.favorites.find(element => element.movie_id === movie.movie_id);
       (exists) ?
