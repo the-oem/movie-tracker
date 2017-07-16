@@ -13,7 +13,12 @@ describe('Header test', () => {
   it('should render a header element', () => {
 
   });
-  // it('should...', () => {})
+  it('hold a link to the login component', () => {
+
+  });
+  it('clicking the login button should cause a function to fire', () => {
+
+  });
   // it('should...', () => {})
   // it('should...', () => {})
 });

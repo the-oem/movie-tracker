@@ -14,6 +14,7 @@ const Movie = ({ movie, handleFavorite, favorite }) => {
         <img className='movie-poster' src={`${movie.poster}`} />
         <div className={renderClass}></div>
       </div>
+      <div className='movie-shelf-edge'></div>
     </div>
   );
 };
