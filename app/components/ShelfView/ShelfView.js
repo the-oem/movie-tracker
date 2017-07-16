@@ -12,7 +12,7 @@ export default class ShelfView extends Component {
     const user = getFromCache('authenticatedUser');
     if (user) {
       this.props.logUserIn(user);
-      this.props.fetchFavorites(user.id);
+      // this.props.fetchFavorites(user.id);
     }
   }
 

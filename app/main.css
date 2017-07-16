@@ -61,6 +61,7 @@ h1 {
   width: 122px;
   margin: auto;
   box-shadow: 10px -4px 20px #28231c;
+  border-radius: 5px;
 }
 
 .movie-poster {
@@ -71,6 +72,7 @@ h1 {
   border-color: transparent;
   border-image: url('./assets/blu-ray-case.png') 94 stretch;
   box-shadow: 2px 0 1px #0099df;
+  border-radius: 5px;
 }
 
 .favorite-btn {
