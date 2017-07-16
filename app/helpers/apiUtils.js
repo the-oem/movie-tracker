@@ -1,4 +1,4 @@
-import { NEW_MOVIES_URL, IMAGE_URL, GET_USER_URL, CREATE_USER_URL, ADD_FAVORITE_URL, GET_FAVORITES_URL } from './constants';
+import { NEW_MOVIES_URL, IMAGE_URL, GET_USER_URL, CREATE_USER_URL, ADD_FAVORITE_URL, GET_FAVORITES_URL, DELETE_FAVORITE_URL } from './constants';
 
 export default class ApiUtils {
   constructor(url = NEW_MOVIES_URL) {
@@ -73,7 +73,6 @@ export default class ApiUtils {
   }
 
   addFavorite(userId, movie) {
-    console.log('Add favorite fetch call...', userId, movie);
     return fetch(ADD_FAVORITE_URL, {
       method: 'POST',
       headers: {
@@ -97,8 +96,20 @@ export default class ApiUtils {
     }).catch(error => error);
   }
 
-  deleteFavorite() {
-    return { status: 'success', message: 'Some row was deleted.' };
+  deleteFavorite(userId, movie) {
+    const url = DELETE_FAVORITE_URL.replace('{user_id}', userId).replace('{movie_id}', movie.id);
+    return fetch(url, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .then((response) => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response.json();
+    }).catch(error => error);
   }
 
   getFavorites(userId) {

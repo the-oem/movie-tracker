@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import ShelfView from '../../components/ShelfView/ShelfView';
 import { fetchMoviesAction } from '../../actions/items';
-import { fetchFavoritesAction, addFavoriteAction } from '../../actions/favorites';
+import { fetchFavoritesAction, addFavoriteAction, deleteFavoriteAction } from '../../actions/favorites';
 import { userIsAuthenticated, userAuthenticationSuccess } from '../../actions/users';
 
 const mapStateToProps = (state) => {
@@ -24,7 +24,9 @@ const mapDispatchToProps = (dispatch) => {
     logUserIn: (user) => {
       dispatch(userIsAuthenticated(true));
       dispatch(userAuthenticationSuccess({ data: { name: user.name, id: user.id } }));
+      dispatch(fetchFavoritesAction(user.id));
     },
+    deleteFavorite: (userId, movie) => dispatch(deleteFavoriteAction(userId, movie)),
   };
 };
 

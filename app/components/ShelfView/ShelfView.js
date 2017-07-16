@@ -17,13 +17,14 @@ export default class ShelfView extends Component {
   }
 
   handleFavorite(movie) {
-    console.log('Adding to favorites ', movie.title, movie.id);
-
     if (this.props.userId === undefined) {
       console.log('user not logged in, figure out how to redirect', this);
       // TODO Figure out how to redirect to /login
     } else {
-      this.props.addFavorite(this.props.userId, movie);
+      const exists = this.props.favorites.find(element => element.movie_id === movie.id);
+      (exists) ?
+        this.props.deleteFavorite(this.props.userId, movie) :
+        this.props.addFavorite(this.props.userId, movie);
     }
   }
 
@@ -32,10 +33,13 @@ export default class ShelfView extends Component {
 
     const content = this.props.isLoading ?
       'loading..' :
-      this.props.items.map((movie, i) => <Movie
-        key={movie.title + i}
-        movie={movie}
-        handleFavorite={this.handleFavorite.bind(this)} />);
+      this.props.items.map((movie, i) => {
+        return <Movie
+          key={movie.title + i}
+          movie={movie}
+          favorite={this.props.favorites.find(element => element.movie_id === movie.id)}
+          handleFavorite={this.handleFavorite.bind(this)} />;
+      });
 
     return (
       <div className='shelf-view'>

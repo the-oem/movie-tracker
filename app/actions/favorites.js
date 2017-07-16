@@ -7,6 +7,13 @@ export const userAddFavorite = (response) => {
   };
 };
 
+export const userDeleteFavorite = (response) => {
+  return {
+    type: 'USER_DELETE_FAVORITE',
+    response,
+  };
+};
+
 export const userGetFavorites = (response) => {
   return {
     type: 'USER_FETCH_FAVORITES_SUCCESS',
@@ -21,23 +28,36 @@ export const applicationDatabaseError = (error) => {
   };
 };
 
-export const addFavoriteAction = (userId, movie) => {
-  return (dispatch) => {
-    return new ApiUtils().addFavorite(userId, movie)
-    .then((response) => {
-      if (response.name === 'Error') throw Error('Unable to add favorite.');
-      dispatch(userAddFavorite(response));
-    })
-    .catch(err => dispatch(applicationDatabaseError(err)));
-  };
-};
-
 export const fetchFavoritesAction = (userId) => {
   return (dispatch) => {
     return new ApiUtils().getFavorites(userId)
     .then((response) => {
       if (response.name === 'Error') throw Error('Unable to retrieve favorites.');
       dispatch(userGetFavorites(response));
+    })
+    .catch(err => dispatch(applicationDatabaseError(err)));
+  };
+};
+
+export const addFavoriteAction = (userId, movie) => {
+  return (dispatch) => {
+    return new ApiUtils().addFavorite(userId, movie)
+    .then((response) => {
+      if (response.name === 'Error') throw Error('Unable to add favorite.');
+      dispatch(userAddFavorite(response));
+      dispatch(fetchFavoritesAction(userId));
+    })
+    .catch(err => dispatch(applicationDatabaseError(err)));
+  };
+};
+
+export const deleteFavoriteAction = (userId, movie) => {
+  return (dispatch) => {
+    return new ApiUtils().deleteFavorite(userId, movie)
+    .then((response) => {
+      if (response.name === 'Error') throw Error('Unable to delete favorite.');
+      dispatch(userDeleteFavorite(response));
+      dispatch(fetchFavoritesAction(userId));
     })
     .catch(err => dispatch(applicationDatabaseError(err)));
   };
