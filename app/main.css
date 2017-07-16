@@ -94,6 +94,16 @@ h1 {
   background: url('./assets/favorite-hover.svg');
 }
 
+.info-view {
+  position: absolute;
+  top: 0;
+  /*width: 400px;*/
+  height: 200px;
+  color: white;
+  background: rgba(25, 19, 15, 0.85);
+  z-index: 10;
+}
+
 @media screen and (min-width: 900px) {
   .header {
     position: relative;
@@ -137,5 +147,9 @@ h1 {
     left: -16px;
     width: 64px;
     height: 64px;
+  }
+
+  .info-view {
+    height: 400px;
   }
 }
