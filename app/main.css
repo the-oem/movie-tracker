@@ -11,9 +11,10 @@
 }
 
 .header {
-  height: 60px;
+  height: 84px;
   padding: 6px 0;
   background-color: rgba(25, 19, 15, 0.85);
+  text-align: center;
 }
 
 h1 {
@@ -21,6 +22,20 @@ h1 {
   font-family: 'Merriweather Sans', Arial, sans-serif;
   font-size: 36px;
   text-align: center;
+}
+
+.header-btn {
+  width: 84px;
+  height: 24px;
+  border: none;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  outline: none;
+}
+
+.header-btn:hover {
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .shelf-view {
@@ -34,9 +49,8 @@ h1 {
 
 .poster-favorite-container {
   position: relative;
-  width: 100px;
+  width: 122px;
   margin: auto;
-  
 }
 
 .movie-poster {
@@ -67,6 +81,29 @@ h1 {
 }
 
 @media screen and (min-width: 900px) {
+  .header {
+    position: relative;
+    height: 100px;
+  }
+  
+  h1 {
+    margin-top: 10px;
+    font-size: 52px;
+  }
+  
+  .header-btn {
+    position: absolute;
+    top: 35px;
+    right: 15px;
+    width: 84px;
+    height: 24px;
+    border: none;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    outline: none;
+  }
+  
   .shelf-view {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     padding: 10px 40px;
