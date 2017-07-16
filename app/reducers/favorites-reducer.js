@@ -10,7 +10,20 @@ export const userAddFavorite = (state = {}, action) => {
   }
 };
 
+export const userDeleteFavorite = (state = {}, action) => {
+  switch (action.type) {
+    case 'USER_DELETE_FAVORITE':
+      return {
+        deleteFavoriteMessage: action.message,
+      };
+
+    default:
+      return state;
+  }
+};
+
 export const favorites = (state = [], action) => {
+  // console.log('state in favorites');
   switch (action.type) {
     case 'USER_FETCH_FAVORITES_SUCCESS':
       return [...action.response.data];

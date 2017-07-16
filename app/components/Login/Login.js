@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { object } from 'prop-types';
-
+import { getFromCache } from '../../helpers/storageUtils';
+import { Link, NavLink } from 'react-router-dom';
+import { browserHistory } from 'react-router';
 
 export default class Login extends Component {
   constructor(props, context) {
@@ -10,8 +12,8 @@ export default class Login extends Component {
       password: 'password',
       authStatus: '',
     };
+    this.handleClick = this.handleClick.bind(this);
   }
-
 
   submitAuthentication(e) {
     e.preventDefault();
@@ -20,6 +22,11 @@ export default class Login extends Component {
       email: 'tman2272@aol.com',
       password: 'password',
     });
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    this.props.history.push('/create-account');
   }
 
   render() {
@@ -32,6 +39,7 @@ export default class Login extends Component {
           <button onClick={this.submitAuthentication.bind(this)}>Login</button>
         </form>
         <h1>{errorMessage}</h1>
+        <button onClick={this.handleClick}>Create Account</button>
       </div>
     );
   }
