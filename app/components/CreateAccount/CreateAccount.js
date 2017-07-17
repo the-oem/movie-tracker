@@ -16,8 +16,9 @@ export default class CreateAccount extends Component {
 
   handleClick(e) {
     e.preventDefault();
-    const createAccount = new ApiUtils();
-    createAccount.createUser(this, this.state);
+    this.props.handleCreateAccount(this.state);
+    // const createAccount = new ApiUtils();
+    // createAccount.createUser(this, this.state);
   }
 
   render() {

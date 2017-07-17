@@ -28,7 +28,8 @@ export default class App extends Component {
                  <ShelfViewContainer location='favorites' /> } />
         <Route exact
                path='/create-account'
-               component={CreateAccount} />
+               render={({ match }) =>
+                 <CreateAccountContainer location='create-account' {...props} /> } />
       </div>
     );
   }

@@ -38,6 +38,24 @@ export const userLoginFromCache = (user) => {
   };
 };
 
+export const createAccountAction = (state) => {
+  return (dispatch) => {
+    console.log('state', state);
+    // return new ApiUtils().createUser(email, password)
+    //   .then((response) => {
+    //     if (response.name === 'Error') throw Error('User not found.');
+    //     dispatch(userIsAuthenticated(true));
+    //     dispatch(userAuthenticationSuccess(response));
+    //     saveToCache('authenticatedUser', response.data);
+    //     dispatch(fetchFavoritesAction(response.data.id));
+    //   })
+    //   .catch((err) => {
+    //     dispatch(userIsAuthenticated(false));
+    //     dispatch(userAuthenticationFailure(err));
+    //   });
+  };
+};
+
 export const makeUserCall = ({ email, password }) => {
   return (dispatch) => {
     return new ApiUtils().fetchUser(email, password)
