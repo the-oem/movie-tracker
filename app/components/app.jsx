@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 import Header from './Header/Header';
 import Login from '../components/Login/Login';
 import ShelfViewContainer from '../containers/ShelfView/ShelfViewContainer';
-import FavoritesContainer from '../containers/Favorites/FavoritesContainer';
+// import FavoritesContainer from '../containers/Favorites/FavoritesContainer';
 import HeaderContainer from '../containers/Header/HeaderContainer';
 import LoginContainer from '../containers/Login/LoginContainer';
 import CreateAccount from '../components/CreateAccount/CreateAccount';

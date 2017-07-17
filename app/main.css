@@ -99,6 +99,8 @@ input {
   height: 35px;
   background: url('./assets/favorite.svg');
   cursor: pointer;
+  z-index: 10;
+  /*background-color: transparent;*/
 }
 
 .favorite-btn.active {
@@ -138,18 +140,77 @@ input {
   color: #9F0001;
 }
 
+
+.movie {
+  -webkit-perspective: 800;
+   width: 122px;
+   height: 200px;
+    position: relative;
+    margin: 50px auto;
+}
+.movie .poster-favorite-container.flipped {
+  -webkit-transform: rotateY(-180deg);
+}
+.movie .poster-favorite-container {
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+}
+.movie .poster-favorite-container .face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden ;
+  z-index: 2;
+    font-family: Georgia;
+    font-size: 3em;
+    text-align: center;
+    line-height: 200px;
+}
+.movie .poster-favorite-container .front {
+  position: absolute;
+  z-index: 1;
+    background: black;
+    color: white;
+    cursor: pointer;
+}
+.movie .poster-favorite-container .back {
+  -webkit-transform: rotateY(-180deg);
+    background: blue;
+    background: white;
+    color: black;
+    cursor: pointer;
+}
+
+.back p {
+  line-height: 18px;
+  font-size: 18px;
+  text-align: left;
+  margin: 16px 0 0 0
+}
+
+.back h3 {
+  text-align: left;
+  line-height: 22px;
+  font-size: 22px;
+  margin: 16px 0 0 50px
+}
+
+
+
 @media screen and (min-width: 900px) {
   .header {
     position: relative;
     height: 100px;
   }
-  
+
   h1 {
     display: inline-block;
     margin-top: 10px;
     font-size: 52px;
   }
-  
+
   .header-btn-container {
     position: absolute;
     z-index: 99;
@@ -158,16 +219,21 @@ input {
     margin-top: 30px;
     margin-right: 10px;
   }
-  
+
   .shelf-view {
     padding: 10px 0;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
-  
+
   .poster-favorite-container {
     width: 260px;
   }
-  
+
+  .movie {
+    width: 260px;
+    height: 400px;
+  }
+
   .movie-poster {
     width: 260px;
     height: 400px;
@@ -175,14 +241,14 @@ input {
     border-radius: 5px;
     border-width: 28px 0 0;
   }
-  
+
   .favorite-btn {
     top: -17px;
     left: -16px;
     width: 64px;
     height: 64px;
   }
-  
+
   .login, .create-account-container {
     width: 600px;
   }
