@@ -26,9 +26,9 @@ const Movie = ({ movie, handleFavorite, favorite, displayInfo, toggleInfo }) => 
         <img className={frontClass} src={`${movie.poster_path}`} />
         <div className={backClass}>
           <h3>{movie.title}</h3>
-          <p>{movie.overview}</p>
-          <p>Released: {movie.releaseDate}</p>
-          <p>Average Rating: {movie.voteAverage}</p>
+          <p><span className="bold">Released: </span>{movie.releaseDate}</p>
+          <p><span className="bold">Average Rating: </span>{movie.voteAverage}</p>
+          <p className="overview">{movie.overview}</p>
         </div>
       </section>
       <div className='movie-shelf-edge'></div>
