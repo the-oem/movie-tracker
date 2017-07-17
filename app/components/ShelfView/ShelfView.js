@@ -48,7 +48,7 @@ export default class ShelfView extends Component {
       this.props.favorites : this.props.items;
 
     const content = this.props.isLoading ?
-      'loading..' :
+      <div></div> :
       renderData.map((movie, i) => {
         return <Movie
           key={movie.title + i}
