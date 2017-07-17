@@ -43,7 +43,7 @@ export default class Login extends Component {
                  placeholder='Password'
                  className='password-input'
                  onChange={(e) => { this.setState({ password: e.target.value }); }}/>
-          <button onClick={this.submitAuthentication.bind(this)}>Login</button>
+          <button className="submit" onClick={this.submitAuthentication.bind(this)}>Login</button>
         </form>
         <h3 className='error-msg'>{errorMessage}</h3>
         <p className='create-acct-prompt'>Don't have an account?</p>

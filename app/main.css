@@ -143,78 +143,78 @@ input {
   color: #9F0001;
 }
 
+.back p, .back .overview {
+  margin: 12;
+}
 
-.movie {
-  -webkit-perspective: 800;
-   width: 122px;
-   height: 200px;
+@media screen and (min-width: 900px) {
+  .movie {
+    -webkit-perspective: 800;
+    width: 122px;
+    height: 200px;
     position: relative;
     margin: 50px auto;
-}
-.movie .poster-favorite-container.flipped {
-  -webkit-transform: rotateY(-180deg);
-}
-.movie .poster-favorite-container {
-  width: 100%;
-  height: 100%;
-  -webkit-transform-style: preserve-3d;
-  -webkit-transition: 0.5s;
-}
-.movie .poster-favorite-container .face {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  -webkit-backface-visibility: hidden ;
-  z-index: 2;
+  }
+  .movie .poster-favorite-container.flipped {
+    -webkit-transform: rotateY(-180deg);
+  }
+  .movie .poster-favorite-container {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 0.5s;
+  }
+  .movie .poster-favorite-container .face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-backface-visibility: hidden ;
+    z-index: 2;
     font-family: Lato;
     font-size: 3em;
     text-align: center;
     line-height: 200px;
-}
-.movie .poster-favorite-container .front {
-  position: absolute;
-  z-index: 1;
+  }
+  .movie .poster-favorite-container .front {
+    position: absolute;
+    z-index: 1;
     background: black;
     color: white;
     cursor: pointer;
-}
-.movie .poster-favorite-container .back {
-  padding: 3px;
-  -webkit-transform: rotateY(-180deg);
+  }
+  .movie .poster-favorite-container .back {
+    padding: 3px;
+    -webkit-transform: rotateY(-180deg);
     background: blue;
     background: white;
     color: black;
     cursor: pointer;
-}
+  }
 
-.back p {
-  line-height: 18px;
-  font-size: 18px;
-  text-align: left;
+  .back p {
+    line-height: 18px;
+    font-size: 18px;
+    text-align: left;
     margin: 16px 0 0 50px
-}
+  }
 
-.back h3 {
-  text-align: left;
-  line-height: 22px;
-  font-size: 22px;
-  margin: 16px 0 0 50px
-}
+  .back h3 {
+    text-align: left;
+    line-height: 22px;
+    font-size: 22px;
+    margin: 16px 0 0 50px
+  }
 
-.back .overview {
-  height: 230px;
-  margin: 16px 0 0 3px;
-  overflow: auto;
-}
+  .back .overview {
+    height: 230px;
+    margin: 16px 0 0 3px;
+    overflow: auto;
+  }
 
-.bold {
-  font-style: "Merriweather sans";
-  font-weight: 700;
-}
-
-
-
-@media screen and (min-width: 900px) {
+  .bold {
+    font-style: "Merriweather sans";
+    font-weight: 700;
+  }
   .header {
     position: relative;
     height: 100px;

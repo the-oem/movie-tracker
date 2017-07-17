@@ -40,6 +40,7 @@ export const userLoginFromCache = (user) => {
 
 export const makeUserCall = ({ email, password }) => {
   return (dispatch) => {
+    console.log('wtf', dispatch);
     return new ApiUtils().fetchUser(email, password)
       .then((response) => {
         if (response.name === 'Error') throw Error('User not found.');

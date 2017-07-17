@@ -77,7 +77,7 @@ describe('LOGIN COMPONENT TEST', () => {
     expect(dom.find('input').length).toEqual(2);
   });
 
-  it.skip('should have state with 3 empty strings to start off', () => {
+  it('should have state with 3 empty strings to start off', () => {
     const mockedProps = jest.fn();
     const wrapper2 = mount(<Login loginInUserSuccess={mockedProps} />);
 
@@ -87,30 +87,31 @@ describe('LOGIN COMPONENT TEST', () => {
     expect(wrapper2.state().authStatus).toEqual('');
   });
 
-  it.skip('Should have props being passed down from container, which are a method and history', () => {
+  it('Should have props being passed down from container, which are a method and history', () => {
     const login = wrapper.find('Login');
 
-    expect(Object.keys(login.props()).length).toEqual(2);
-    expect(Object.keys(login.props())[0]).toEqual('history');
+    expect(Object.keys(login.props()).length).toEqual(4);
+    expect(Object.keys(login.props()).history).toEqual('history');
     expect(Object.keys(login.props())[1]).toEqual('handleAuthentication');
   });
 
-  it('should have a prop that dispatches an action to log a user in', async () => {
-    const button = wrapper.find('button');
+  it.only('should have a prop that dispatches an action to log a user in', async () => {
+    const button = wrapper.find('.submit');
     button.simulate('click');
 
     await resolveAfter2Seconds();
 
     const actions = mockStore.getActions();
 
-    expect(actions.length).toEqual(2);
+    // console.log('ROAR', mockStore.getState());
+    expect(actions.length).toEqual(4);
     expect(actions[0].type).toEqual('USER_AUTHENTICATED');
     expect(actions[1].type).toEqual('USER_AUTHENTICATION_SUCCESS');
   });
   it('should should pass data through the action', async () => {
     const login = wrapper.find('Login');
 
-    const button = wrapper.find('button');
+    const button = wrapper.find('.submit');
     button.simulate('click');
 
     await resolveAfter2Seconds();

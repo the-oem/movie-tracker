@@ -10,10 +10,11 @@ import CreateAccount from '../components/CreateAccount/CreateAccount';
 export default class App extends Component {
   render() {
     const { items } = this.props;
+    console.log(this.props);
     return (
       <div>
         <HeaderContainer {...this.props}/>
-        <Route exact
+        <Route
                path='/'
                render={({ match }) =>
                  <ShelfViewContainer history={history} location='home' /> } />
