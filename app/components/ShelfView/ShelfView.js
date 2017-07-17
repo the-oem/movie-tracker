@@ -6,6 +6,22 @@ import Login from '../Login/Login';
 import { getFromCache } from '../../helpers/storageUtils';
 
 export default class ShelfView extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      displayInfo: [],
+    };
+  }
+
+  toggleInfo(title) {
+    const newState = [...this.state.displayInfo];
+
+    newState.includes(title) ?
+    newState.splice(newState.indexOf(title), 1) :
+    newState.push(title);
+
+    this.setState({ displayInfo: newState });
+  }
 
   componentDidMount() {
     this.props.fetchMovies();
@@ -38,7 +54,9 @@ export default class ShelfView extends Component {
           key={movie.title + i}
           movie={movie}
           favorite={this.props.favorites.find(element => element.movie_id === movie.movie_id)}
-          handleFavorite={this.handleFavorite.bind(this)} />;
+          handleFavorite={this.handleFavorite.bind(this)}
+          toggleInfo={this.toggleInfo.bind(this)}
+          displayInfo={this.state.displayInfo}/>;
       });
 
     return (
