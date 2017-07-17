@@ -6,8 +6,6 @@ const Movie = ({ movie, handleFavorite, favorite, displayInfo, toggleInfo }) => 
     handleFavorite(movie);
   }
 
-  console.log(movie);
-
   const frontClass = 'movie-poster face';
   const backClass = 'back face';
   const cardContainer = displayInfo.includes(movie.title) ?
