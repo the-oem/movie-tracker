@@ -28,6 +28,16 @@ const Header = (props) => {
           </NavLink>
         </div>;
       break;
+    case '/favorites':
+      headerBtns = <div className='header-btn-container'>
+          <NavLink exact activeClassName='selected' to='/'>
+            <button className='header-btn'>Home</button>
+          </NavLink>
+          <NavLink exact activeClassName='selected' to='/'>
+            <button className='header-btn' onClick={handleLogout.bind(this)}>Logout</button>
+          </NavLink>
+        </div>;
+      break;
     default:
       headerBtns = <div className='header-btn-container'>
         <NavLink exact activeClassName='selected' to='/'>
