@@ -11,8 +11,6 @@ const Movie = ({ movie, handleFavorite, favorite, displayInfo, toggleInfo }) => 
   const cardContainer = displayInfo.includes(movie.title) ?
       'poster-favorite-container flipped' :
       'poster-favorite-container';
-
-
   const renderClass = (favorite) ? 'favorite-btn active' : 'favorite-btn';
 
   function flipCard(e) {
