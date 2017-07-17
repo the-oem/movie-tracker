@@ -63,12 +63,14 @@ input {
   margin: 15px 0;
 }
 
-.movie-shelf-edge {
+/*.movie-shelf-edge {
   position: relative;
   top: 10px;
   height: 20px;
   background-color: rgba(138, 93, 48, 0.85);
-  box-shadow: 0px -20px rgb(96, 65, 33);
+  box-shadow: 0px -20px rgb(96, 65, 33);*/
+  /*width: 500px;
+  overflow: */
 }
 
 .poster-favorite-container {
@@ -100,7 +102,8 @@ input {
   background: url('./assets/favorite.svg');
   cursor: pointer;
   z-index: 10;
-  /*background-color: transparent;*/
+  border: 1px solid white;
+  border-radius: 50%;
 }
 
 .favorite-btn.active {
@@ -163,7 +166,7 @@ input {
   position: absolute;
   -webkit-backface-visibility: hidden ;
   z-index: 2;
-    font-family: Georgia;
+    font-family: Lato;
     font-size: 3em;
     text-align: center;
     line-height: 200px;
@@ -176,6 +179,7 @@ input {
     cursor: pointer;
 }
 .movie .poster-favorite-container .back {
+  padding: 3px;
   -webkit-transform: rotateY(-180deg);
     background: blue;
     background: white;
@@ -187,7 +191,7 @@ input {
   line-height: 18px;
   font-size: 18px;
   text-align: left;
-  margin: 16px 0 0 0
+    margin: 16px 0 0 50px
 }
 
 .back h3 {
@@ -195,6 +199,17 @@ input {
   line-height: 22px;
   font-size: 22px;
   margin: 16px 0 0 50px
+}
+
+.back .overview {
+  height: 230px;
+  margin: 16px 0 0 3px;
+  overflow: auto;
+}
+
+.bold {
+  font-style: "Merriweather sans";
+  font-weight: 700;
 }
 
 
