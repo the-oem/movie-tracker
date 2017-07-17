@@ -13,30 +13,45 @@
 .header {
   height: 84px;
   padding: 6px 0;
-  text-align: center;
   background-color: rgba(25, 19, 15, 0.85);
+  text-align: center;
 }
 
 h1 {
-  text-align: center;
   color: #FFF;
   font-family: 'Merriweather Sans', Arial, sans-serif;
   font-size: 36px;
+  text-align: center;
 }
 
-.header-btn {
-  width: 90px;
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button, input {
   height: 24px;
-  margin: 0 8px;
-  cursor: pointer;
   border: none;
   border-radius: 12px;
-  background-color: rgba(255, 255, 255, 0.85);
   outline: none;
 }
 
-.header-btn:hover {
+button {
+  width: 90px;
+  margin: 0 8px;
+  background-color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+}
+
+button:hover {
   background-color: rgba(255, 255, 255, 1);
+}
+
+input {
+  width: 250px;
+  padding-left: 8px;
+  margin: 8px;
 }
 
 .shelf-view {
@@ -60,20 +75,20 @@ h1 {
   position: relative;
   z-index: 1;
   width: 122px;
-  margin: auto;
-  box-shadow: 10px -4px 20px #28231c;
   border-radius: 5px;
+  margin: auto;
+  box-shadow: 10px -4px 20px #28231C;
 }
 
 .movie-poster {
   display: block;
   height: 200px;
-  border-width: 16px 0 0;
-  border-style: solid;
   border-color: transparent;
   border-image: url('./assets/blu-ray-case.png') 94 stretch;
-  box-shadow: 2px 0 1px #0099df;
   border-radius: 5px;
+  border-style: solid;
+  border-width: 16px 0 0;
+  box-shadow: 2px 0 1px #0099df;
 }
 
 .favorite-btn {
@@ -82,8 +97,8 @@ h1 {
   left: -12px;
   width: 35px;
   height: 35px;
-  cursor: pointer;
   background: url('./assets/favorite.svg');
+  cursor: pointer;
 }
 
 .favorite-btn.active {
@@ -92,6 +107,35 @@ h1 {
 
 .favorite-btn:hover {
   background: url('./assets/favorite-hover.svg');
+}
+
+.login, .create-account-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  padding: 20px;
+  margin: 50px auto;
+  background-color: rgba(235, 234, 234, 0.4);
+  box-shadow: 3px 3px 10px #8A5D30;
+}
+
+.login {
+  height: 275px;
+}
+
+.create-account-container {
+  height: 230px;
+}
+
+.create-acct-prompt {
+  margin: 40px 0 8px;
+}
+
+.error-msg {
+  height: 29px;
+  margin-top: 10px;
+  color: #9F0001;
 }
 
 @media screen and (min-width: 900px) {
@@ -127,9 +171,9 @@ h1 {
   .movie-poster {
     width: 260px;
     height: 400px;
-    border-width: 28px 0 0;
-    border-radius: 5px;
     border-image: url('./assets/blu-ray-case.png') 94 stretch;
+    border-radius: 5px;
+    border-width: 28px 0 0;
   }
   
   .favorite-btn {
@@ -137,5 +181,9 @@ h1 {
     left: -16px;
     width: 64px;
     height: 64px;
+  }
+  
+  .login, .create-account-container {
+    width: 600px;
   }
 }

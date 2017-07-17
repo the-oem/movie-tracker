@@ -24,13 +24,26 @@ export default class CreateAccount extends Component {
     const errorMessage = this.state.message === 'Internal Server Error' ? 'Email has already been used' : '';
     return (
       <div className='create-account-container'>
-        <form>
-          <input className='name-input' type='text' value={this.state.name} placeholder='Name' onChange={(e) => { this.setState({ name: e.target.value }); }}/>
-          <input className='email-input' type='text' value={this.state.email} placeholder='Email' onChange={(e) => { this.setState({ email: e.target.value }); }}/>
-          <input className='password-input' type='text' value={this.state.password} placeholder='Password' onChange={(e) => { this.setState({ password: e.target.value }); }}/>
-          <button className='create-account-submit-btn' onClick={this.handleClick.bind(this)}>Create Account</button>
+        <form className='input-form'>
+          <input className='name-input'
+                 type='text'
+                 value={this.state.name}
+                 placeholder='Name'
+                 onChange={(e) => { this.setState({ name: e.target.value }); }}/>
+          <input className='email-input'
+                 type='text'
+                 value={this.state.email}
+                 placeholder='Email'
+                 onChange={(e) => { this.setState({ email: e.target.value }); }}/>
+          <input className='password-input'
+                 type='text'
+                 value={this.state.password}
+                 placeholder='Password'
+                 onChange={(e) => { this.setState({ password: e.target.value }); }}/>
+          <button className='create-account-submit-btn'
+                  onClick={this.handleClick.bind(this)}>Create Account</button>
         </form>
-        <h1 className='error-msg'>{errorMessage}</h1>
+        <h3 className='error-msg'>{errorMessage}</h3>
       </div>
     );
   }
