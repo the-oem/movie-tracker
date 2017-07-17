@@ -30,7 +30,8 @@ form {
   align-items: center;
 }
 
-button, input {
+button,
+input {
   height: 24px;
   border: none;
   border-radius: 12px;
@@ -63,16 +64,20 @@ input {
   margin: 15px 0;
 }
 
+
 /*.movie-shelf-edge {
   position: relative;
   top: 10px;
   height: 20px;
   background-color: rgba(138, 93, 48, 0.85);
   box-shadow: 0px -20px rgb(96, 65, 33);*/
-  /*width: 500px;
-  overflow: */
-}
 
+
+/*width: 500px;
+  overflow: */
+
+
+}
 .poster-favorite-container {
   position: relative;
   z-index: 1;
@@ -81,7 +86,6 @@ input {
   margin: auto;
   box-shadow: 10px -4px 20px #28231C;
 }
-
 .movie-poster {
   display: block;
   height: 200px;
@@ -92,7 +96,6 @@ input {
   border-width: 16px 0 0;
   box-shadow: 2px 0 1px #0099df;
 }
-
 .favorite-btn {
   position: absolute;
   top: -10px;
@@ -105,16 +108,14 @@ input {
   border: 1px solid white;
   border-radius: 50%;
 }
-
 .favorite-btn.active {
   background: url('./assets/favorite-active.svg');
 }
-
 .favorite-btn:hover {
   background: url('./assets/favorite-hover.svg');
 }
-
-.login, .create-account-container {
+.login,
+.create-account-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,33 +124,28 @@ input {
   margin: 50px auto;
   background-color: rgba(235, 234, 234, 0.4);
   box-shadow: 3px 3px 10px #8A5D30;
+  border-radius: 15px;
 }
-
 .login {
   height: 275px;
 }
-
 .create-account-container {
   height: 230px;
 }
-
 .create-acct-prompt {
   margin: 40px 0 8px;
 }
-
 .error-msg {
   height: 29px;
   margin-top: 10px;
   color: #9F0001;
 }
-
-
 .movie {
   -webkit-perspective: 800;
-   width: 122px;
-   height: 200px;
-    position: relative;
-    margin: 50px auto;
+  width: 122px;
+  height: 200px;
+  position: relative;
+  margin: 50px auto;
 }
 .movie .poster-favorite-container.flipped {
   -webkit-transform: rotateY(-180deg);
@@ -164,56 +160,49 @@ input {
   width: 100%;
   height: 100%;
   position: absolute;
-  -webkit-backface-visibility: hidden ;
+  -webkit-backface-visibility: hidden;
   z-index: 2;
-    font-family: Lato;
-    font-size: 3em;
-    text-align: center;
-    line-height: 200px;
+  font-family: Lato;
+  font-size: 3em;
+  text-align: center;
+  line-height: 200px;
 }
 .movie .poster-favorite-container .front {
   position: absolute;
   z-index: 1;
-    background: black;
-    color: white;
-    cursor: pointer;
+  background: black;
+  color: white;
+  cursor: pointer;
 }
 .movie .poster-favorite-container .back {
   padding: 3px;
   -webkit-transform: rotateY(-180deg);
-    background: blue;
-    background: white;
-    color: black;
-    cursor: pointer;
+  background: blue;
+  background: white;
+  color: black;
+  cursor: pointer;
 }
-
 .back p {
   line-height: 18px;
   font-size: 18px;
   text-align: left;
-    margin: 16px 0 0 50px
+  margin: 16px 0 0 50px
 }
-
 .back h3 {
   text-align: left;
   line-height: 22px;
   font-size: 22px;
   margin: 16px 0 0 50px
 }
-
 .back .overview {
   height: 230px;
   margin: 16px 0 0 3px;
   overflow: auto;
 }
-
 .bold {
   font-style: "Merriweather sans";
   font-weight: 700;
 }
-
-
-
 @media screen and (min-width: 900px) {
   .header {
     position: relative;
@@ -264,7 +253,8 @@ input {
     height: 64px;
   }
 
-  .login, .create-account-container {
+  .login,
+  .create-account-container {
     width: 600px;
   }
 }

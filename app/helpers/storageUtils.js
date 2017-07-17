@@ -8,6 +8,10 @@ export const getFromCache = (key) => {
   return USE_CACHE ? JSON.parse(localStorage.getItem(key)) : null;
 };
 
-export const removeFromCache = ((key) => {
+export const removeFromCache = (key) => {
   if (USE_CACHE) localStorage.removeItem(key);
-});
+};
+
+export const formatAuthForStorage = (name, email, id) => {
+  return { data: { name, email, id } };
+};

@@ -27,7 +27,8 @@ export const userAuthenticationSuccess = (state = {}, action) => {
 
       return {
         name: action.user.data.name,
-        user_id: action.user.data.id,
+        email: action.user.data.email,
+        id: action.user.data.id,
       };
 
     default:
