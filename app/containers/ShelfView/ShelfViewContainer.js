@@ -11,14 +11,13 @@ const mapStateToProps = (state) => {
     favorites: state.favorites,
     hasErrored: state.itemsHasErrored,
     isLoading: state.itemsIsLoading,
-    userId: state.userAuthenticationSuccess.user_id,
+    userId: state.userAuthenticationSuccess.id,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchMovies: () => dispatch(fetchMoviesAction()),
-    fetchFavorites: userId => dispatch(fetchFavoritesAction(userId)),
     addFavorite: (userId, movie) => dispatch(addFavoriteAction(userId, movie)),
     logUserIn: user => dispatch(userLoginFromCache(user)),
     deleteFavorite: (userId, movie) => dispatch(deleteFavoriteAction(userId, movie)),

@@ -69,8 +69,7 @@ export default class ApiUtils {
       }
       return response.json();
     })
-    .then(data => component.setState({ message: data.message, status: data.status }))
-    .catch(error => component.setState({ message: error.message }));
+    .catch(error => error);
   }
 
   addFavorite(userId, movie) {

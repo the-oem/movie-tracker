@@ -5,7 +5,7 @@ import Login from '../components/Login/Login';
 import ShelfViewContainer from '../containers/ShelfView/ShelfViewContainer';
 import HeaderContainer from '../containers/Header/HeaderContainer';
 import LoginContainer from '../containers/Login/LoginContainer';
-import CreateAccount from '../components/CreateAccount/CreateAccount';
+import CreateAccountContainer from '../containers/CreateAccount/CreateAccountContainer';
 
 export default class App extends Component {
   render() {
@@ -28,8 +28,10 @@ export default class App extends Component {
                  <ShelfViewContainer location='favorites' /> } />
         <Route exact
                path='/create-account'
-               render={({ match }) =>
-                 <CreateAccountContainer location='create-account' {...props} /> } />
+               render={props =>
+                 (this.props.userIsAuthenticated ?
+                   <Redirect to='/' /> :
+                   <CreateAccountContainer location='create-account' {...props} />)} />
       </div>
     );
   }
