@@ -1,5 +1,5 @@
 import ApiUtils from '../helpers/apiUtils';
-import { saveToCache } from '../helpers/storageUtils';
+import { saveToCache, formatAuthForStorage } from '../helpers/storageUtils';
 import { fetchFavoritesAction } from './favorites';
 
 export const userIsAuthenticated = (bool) => {
@@ -31,10 +31,26 @@ export const saveUserToCache = (response) => {
 };
 
 export const userLoginFromCache = (user) => {
+  const { name, email, id } = user.data;
   return (dispatch) => {
     dispatch(userIsAuthenticated(true));
-    dispatch(userAuthenticationSuccess({ data: { name: user.name, id: user.id } }));
-    dispatch(fetchFavoritesAction(user.id));
+    dispatch(userAuthenticationSuccess({ data: { name, email, id } }));
+    dispatch(fetchFavoritesAction(id));
+  };
+};
+
+export const createAccountAction = (state) => {
+  return (dispatch) => {
+    return new ApiUtils().createUser(state.name, state.email, state.password)
+      .then((response) => {
+        if (response.name === 'Error') throw Error('Unable to create user.');
+        const user = formatAuthForStorage(state.name, state.email, response.id);
+        saveToCache('authenticatedUser', user);
+        dispatch(userLoginFromCache(user));
+      })
+      .catch((err) => {
+        dispatch(userIsAuthenticated(false));
+      });
   };
 };
 

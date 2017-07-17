@@ -30,7 +30,8 @@ form {
   align-items: center;
 }
 
-button, input {
+button,
+input {
   height: 24px;
   border: none;
   border-radius: 12px;
@@ -63,16 +64,20 @@ input {
   margin: 15px 0;
 }
 
+
 /*.movie-shelf-edge {
   position: relative;
   top: 10px;
   height: 20px;
   background-color: rgba(138, 93, 48, 0.85);
   box-shadow: 0px -20px rgb(96, 65, 33);*/
-  /*width: 500px;
-  overflow: */
-}
 
+
+/*width: 500px;
+  overflow: */
+
+
+}
 .poster-favorite-container {
   position: relative;
   z-index: 1;
@@ -81,7 +86,6 @@ input {
   margin: auto;
   box-shadow: 10px -4px 20px #28231C;
 }
-
 .movie-poster {
   display: block;
   height: 200px;
@@ -92,7 +96,6 @@ input {
   border-width: 16px 0 0;
   box-shadow: 2px 0 1px #0099df;
 }
-
 .favorite-btn {
   position: absolute;
   top: -10px;
@@ -105,16 +108,14 @@ input {
   border: 1px solid white;
   border-radius: 50%;
 }
-
 .favorite-btn.active {
   background: url('./assets/favorite-active.svg');
 }
-
 .favorite-btn:hover {
   background: url('./assets/favorite-hover.svg');
 }
-
-.login, .create-account-container {
+.login,
+.create-account-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,20 +124,17 @@ input {
   margin: 50px auto;
   background-color: rgba(235, 234, 234, 0.4);
   box-shadow: 3px 3px 10px #8A5D30;
+  border-radius: 15px;
 }
-
 .login {
   height: 275px;
 }
-
 .create-account-container {
   height: 230px;
 }
-
 .create-acct-prompt {
   margin: 40px 0 8px;
 }
-
 .error-msg {
   height: 29px;
   margin-top: 10px;
@@ -215,6 +213,7 @@ input {
     font-style: "Merriweather sans";
     font-weight: 700;
   }
+
   .header {
     position: relative;
     height: 100px;
@@ -264,7 +263,8 @@ input {
     height: 64px;
   }
 
-  .login, .create-account-container {
+  .login,
+  .create-account-container {
     width: 600px;
   }
 }
