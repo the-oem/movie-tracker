@@ -1,8 +1,10 @@
 // const Server = require('./server');
+require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const cors = require('express-cors');
-var bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+
 const port = (process.env.PORT || 3000);
 const app = express();
 const users = require('./routes/usersApi');
@@ -21,16 +23,16 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(webpackHotMiddleware(compiler));
   app.use(webpackDevMiddleware(compiler, {
     noInfo: true,
-    publicPath: config.output.publicPath
+    publicPath: config.output.publicPath,
   }));
 }
 
 app.use(express.static('app'));
 
-app.get('/', function (req, res) { res.sendFile(path.join(__dirname, '/index.html')) });
+app.get('/', (req, res) => { res.sendFile(path.join(__dirname, '/index.html')); });
 
 app.use('/api', users);
-app.get('/*', function (req, res) { res.sendFile(path.join(__dirname, '/index.html')) });
+app.get('/*', (req, res) => { res.sendFile(path.join(__dirname, '/index.html')); });
 
 app.listen(port);
 
